@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+
+
+.target-wrapper {
+	display: none;
+}
+
+.target-eye {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	font-size: 3vh;
+}
+
+.target-label-wrapper {
+	position: absolute;
+	top: 51.5%;
+	left: 51.0%;
+	margin-left: 2vh;
+	margin-top: -1.5vh;
+}
+
+.target-label {
+	list-style: none;
+	font-size: 1.3vh;
+	font-weight: 700;
+	font-family: 'Roboto', sans-serif;
+	color: rgb(255, 255, 255);
+	text-transform: uppercase;
+	user-select: none;
+	white-space: nowrap;
+	vertical-align: middle;
+	padding-left: 4px;
+	border-radius: 2px;
+	
+}
+
+.target-icon {
+	color: rgb(102, 41, 201);
+	margin-top: 2px;
+}
+
+.target-item {
+	background: linear-gradient(90deg, rgb(12, 18, 44) 0%, rgba(255, 255, 255, 0) 80%);
+	border-radius: 15px;
+	margin-bottom: 6px;
+	width: 280px;
+	padding: 6px;
+	height: 19px;
+}

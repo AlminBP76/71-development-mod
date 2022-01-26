@@ -1,0 +1,380 @@
+@font-face {
+    font-family: 'Industry';
+    src: url('../fonts/Industry-Medium.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Industry';
+    src: url('../fonts/Industry-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+* {
+
+    font-family: 'Industry';
+    font-weight: 600;
+    font-size         :       1.1vh;
+
+    vertical-align  :       middle;
+
+}
+
+#StatusHud {
+
+    position     :       absolute;
+
+    bottom       :       5%;
+
+    border-left: 3.5px solid #383ee5;
+    border-right: 3.5px solid #383ee5;
+
+
+    left         :       1%;
+
+}
+
+#InformacijeHud {
+
+    position     :       absolute;
+
+    bottom       :       1%;
+
+    border-left: 3.5px solid #383ee5;
+    border-right: 3.5px solid #383ee5;
+    background: #0e1527;
+
+    right         :       0.5%;
+
+}
+
+#naslovKontrole {
+    position     :       absolute;
+    font-size: 500px;
+    text-align: center;
+    font-weight: bolda;
+    bottom       :       5%;
+    color: white;
+    left         :       1%;
+
+}
+
+#kontrole {
+    width: 8%;
+    height: 13%;
+    position: absolute;
+    font-size: 50px;
+    text-align: left;
+    bottom: 5%;
+    border-left: 2px solid #0077ff;
+    border-right: 2px solid rgb(0, 119, 255);
+    background-color       :       rgba(40, 40, 40, 0.329);
+    padding-left: 0.5%;
+    color: white;
+    left: 1%;
+}
+
+#telefon {
+    padding-bottom: 8px;
+    width: 1.55%;
+    height: 2%;
+    position     :       absolute;
+    font-size: 100px;
+    text-align: center;
+    bottom       :       69%;
+    border-radius: 50%;
+    border: solid 2px rgb(224, 224, 224);
+    color: white;
+    left         :       3%;
+}
+
+#telefon-ikona {
+    position: absolute;
+    bottom: 69.3%;
+    color: white;
+    left: 1.5%;
+}
+
+#meni {
+    padding-bottom: 8px;
+    width: 1.55%;
+    height: 2%;
+    position     :       absolute;
+    font-size: 100px;
+    text-align: center;
+    bottom       :       65%;
+    border-radius: 50%;
+    border: solid 2px rgb(224, 224, 224);
+    color: white;
+    left         :       3%;
+}
+
+#meni-ikona {
+    position: absolute;
+    bottom: 65.3%;
+    color: white;
+    left: 1.5%;
+}
+
+#inventar {
+    padding-bottom: 8px;
+    width: 1.55%;
+    height: 2%;
+    position     :       absolute;
+    font-size: 100px;
+    text-align: center;
+    bottom       :       61%;
+    border-radius: 50%;
+    border: solid 2px rgb(224, 224, 224);
+    color: white;
+    left         :       3%;
+}
+
+#inventar-ikona {
+    position: absolute;
+    bottom: 61.3%;
+    color: white;
+    left: 1.5%;
+}
+
+#animacije {
+    padding-bottom: 8px;
+    width: 1.55%;
+    height: 2%;
+    position     :       absolute;
+    font-size: 100px;
+    text-align: center;
+    bottom       :       57%;
+    border-radius: 50%;
+    border: solid 2px rgb(224, 224, 224);
+    color: white;
+    left         :       3%;
+}
+
+#animacije-ikona {
+    position: absolute;
+    bottom: 57.3%;
+    color: white;
+    left: 1.5%;
+}
+
+#zakljucavanje {
+    padding-bottom: 8px;
+    width: 1.55%;
+    height: 2%;
+    position     :       absolute;
+    font-size: 100px;
+    text-align: center;
+    bottom       :       53%;
+    border-radius: 50%;
+    border: solid 2px rgb(224, 224, 224);
+    color: white;
+    left         :       3%;
+}
+
+#zakljucavanje-ikona {
+    position: absolute;
+    bottom: 53.3%;
+    color: white;
+    left: 1.5%;
+}
+
+#vojs {
+    padding-bottom: 8px;
+    width: 1.55%;
+    height: 2%;
+    position     :       absolute;
+    font-size: 100px;
+    text-align: center;
+    bottom       :       51%;
+    border-radius: 50%;
+    border: solid 2px rgb(224, 224, 224);
+    color: white;
+    right         :       1.5%;
+}
+
+#vojs-ikona {
+    position: absolute;
+    bottom: 51.3%;
+    color: white;
+    right: 4%;
+}
+
+#kesBato {
+    position :absolute;
+    font-size: 28px;
+    text-align: center;
+    bottom: 70%;
+    color: white;
+    right: 1%;
+}
+
+#kes-ikona {
+    position: absolute;
+    bottom: 61.3%;
+    color: white;
+    right: 4%;
+}
+
+#bankaBato {
+    position :absolute;
+    font-size: 18px;
+    text-align: center;
+    bottom: 66%;
+    color: white;
+    right: 1%;
+}
+
+#prljavBato {
+    position :absolute;
+    font-size: 18px;
+    text-align: center;
+    bottom: 64%;
+    color: white;
+    right: 1%;
+}
+
+#sefBato {
+    position :absolute;
+    font-size: 18px;
+    text-align: center;
+    bottom: 62%;
+    color: white;
+    right: 1%;
+}
+
+#vrijeme {
+    position :absolute;
+    font-size: 18px;
+    text-align: center;
+    bottom: 7%;
+    color: white;
+    right: 1%;
+}
+
+#datum {
+    position :absolute;
+    font-size: 18px;
+    text-align: center;
+    bottom: 5%;
+    color: white;
+    right: 1%;
+}
+
+#igraci {
+    position :absolute;
+    font-size: 18px;
+    text-align: center;
+    top: 97%;
+    color: white;
+    right: 1%;
+}
+
+#igraci-ikona {
+    position: absolute;
+    top: 97.7%;
+    color: #7a0db9dc;
+    right: 4%;
+}
+
+#posaoBato {
+    position :absolute;
+    font-size: 30px;
+    text-align: center;
+    bottom: 74%;
+    color: white;
+    right: 1%;
+}
+
+#tekst {
+    width: 14%;
+    height: 2.75%;
+    position     :       absolute;
+    font-size: 100px;
+    text-align: center;
+    bottom       :       5%;
+    border-left: 3.5px solid #7a0db9dc;
+    border-right: 3.5px solid #7a0db9dc;
+    background-color: #0e1527;
+
+    color: white;
+    left         :       1%;
+
+}
+
+
+.textpercent {
+
+    width            :       2vh;
+
+    float            :       right;
+
+    padding-left     :       0.5vh;
+
+    text-align       :       center;
+
+}
+
+body {
+
+    width     :       100%;
+
+    overflow  :       hidden;
+
+}
+
+#logo {
+
+    position    :       absolute;
+
+    opacity     :       1;
+
+    right       :       3.0vh;
+
+    top         :       0.2vh;
+
+}
+
+.cmx-hud-box {
+
+    display                :        inline-block;
+
+    background       :       #0e1527;
+
+    color                  :       white;
+
+    padding                :        4.5px 6px;
+
+    width                  :        fit-content;
+
+    text-align             :       center;
+
+    margin-top             :       0.2vh;
+
+    border-radius          :       0.1vh;
+
+    color                  :     white;
+
+}
+
+.infobox {
+
+    display                :        inline-block;
+
+    background-color       :       rgba(40, 40, 40, 0.329);
+
+
+    padding                :        4.5px 6px;
+
+    width                  :        fit-content;
+
+    text-align             :       center;
+
+    margin-top             :       0.2vh;
+
+    border-radius          :       0.1vh;
+
+    color                  :     white;
+    
+
+}

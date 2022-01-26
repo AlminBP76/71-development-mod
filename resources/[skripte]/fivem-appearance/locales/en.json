@@ -1,0 +1,127 @@
+{
+  "modal": {
+    "save": {
+      "title": "Sacuvaj Promjene",
+      "description": "Ostajes ruzan"
+    },
+    "exit": {
+      "title": "Napusti editovanje",
+      "description": "Promjene nece biti sacuvane"
+    },
+    "accept": "Da",
+    "decline": "Ne"
+  },
+  "ped": {
+    "title": "Ped",
+    "model": "Model"
+  },
+  "headBlend": {
+    "title": "Naslijedstva",
+    "shape": {
+      "title": "Faca",
+      "firstOption": "Otac",
+      "secondOption": "Majka",
+      "mix": "Mix"
+    },
+    "skin": {
+      "title": "Skin",
+      "firstOption": "Otac",
+      "secondOption": "Majka",
+      "mix": "Mix"
+    }
+  },
+  "faceFeatures": {
+    "title": "Osobnosti Face",
+    "nose": {
+      "title": "Nos",
+      "width": "Sirina",
+      "height": "Visina",
+      "size": "Velicina",
+      "boneHeight": "Visina Kosti",
+      "boneTwist": "Uvijenost Kosti",
+      "peakHeight": "Visina Peaka"
+    },
+    "eyebrows": {
+      "title": "Obrve",
+      "height": "Visina",
+      "depth": "Dubljina"
+    },
+    "cheeks": {
+      "title": "Obrazi",
+      "boneHeight": "Visina Kosti",
+      "boneWidth": "Sirina Kosti",
+      "width": "Sirina"
+    },
+    "eyesAndMouth": {
+      "title": "Oci i usta",
+      "eyesOpening": "Otvor ociju",
+      "lipsThickness": "Debljina usni"
+    },
+    "jaw": {
+      "title": "Vilica",
+      "width": "Sirina",
+      "size": "Velicina"
+    },
+    "chin": {
+      "title": "Brada",
+      "lowering": "Nisko",
+      "length": "Duzina",
+      "size": "Velicina",
+      "hole": "Velicina rupe"
+    },
+    "neck": {
+      "title": "Vrat",
+      "thickness": "Debljina"
+    }
+  },
+  "headOverlays": {
+    "title": "Pojava",
+    "hair": {
+      "title": "Kosa",
+      "style": "Stil",
+      "color": "Boja",
+      "highlight": "Highlight"
+    },
+    "opacity": "Vidljivost",
+    "style": "Stil",
+    "color": "Boja",
+    "blemishes": "Blemishes",
+    "beard": "Brada",
+    "eyebrows": "Obrve",
+    "ageing": "Godine",
+    "makeUp": "Sminka",
+    "blush": "Blush",
+    "complexion": "Complexion",
+    "sunDamage": "Izgorelost",
+    "lipstick": "Ruz",
+    "moleAndFreckles": "Pjegice",
+    "chestHair": "Dlake po prsima",
+    "bodyBlemishes": "Fleke po tijelu",
+    "eyeColor": "Boja ociju"
+  },
+  "components": {
+    "title": "Odjeca",
+    "drawable": "Iscrtavanje",
+    "texture": "Texture",
+    "mask": "Maska",
+    "upperBody": "Ruke",
+    "lowerBody": "Noge",
+    "bags": "Torbe i padobrani",
+    "shoes": "Cipele",
+    "scarfAndChains": "Sal i lanci",
+    "shirt": "Majica",
+    "bodyArmor": "Panciri",
+    "decals": "Dodatci",
+    "jackets": "Jakne"
+  },
+  "props": {
+    "title": "Dodatci",
+    "drawable": "Iscrtavanje",
+    "texture": "Texture",
+    "hats": "Kape i kacige",
+    "glasses": "Naocale",
+    "ear": "Usi",
+    "watches": "Satovi",
+    "bracelets": "Naruknice"
+  }
+}

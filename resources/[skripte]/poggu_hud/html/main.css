@@ -1,0 +1,134 @@
+.container {
+	display: block;
+	max-width: 15%;
+	position: fixed;
+	right: -109px;
+	top:33px;
+}
+
+.item {
+	margin-top: -6px;
+	background-color: #ffffff77;
+	width: 140px;
+	height: 31px;
+	border-bottom: 1px solid #383ee5;
+}
+
+.item-job {
+	display: inline-block!important;
+	margin-top: 10px!important;
+	min-width: 136px!important;
+	width: auto!important;
+}
+
+.item-alert {
+	display: inline-block!important;
+	margin-top: 10px!important;
+	min-width: 136px!important;
+	width: auto!important;
+	border-top: 3px solid #383ee5!important;
+	border-bottom: unset!important;
+	margin-right: -278px;
+	opacity: 0;
+}
+
+.alerts .item-alert .bar {
+	background-color: #3377a4;
+	background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, #0e1527), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, #0e1527), color-stop(0.75, #0e1527), color-stop(0.75, transparent), to(transparent));
+	background-image: -webkit-linear-gradient(-45deg, #0e1527 25%, transparent 25%, transparent 50%, #0e1527 50%, #0e1527 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(-45deg, #0e1527 25%, transparent 25%, transparent 50%, #0e1527 50%, #0e1527 75%, transparent 75%, transparent);
+	background-image: -ms-linear-gradient(-45deg, #0e1527 25%, transparent 25%, transparent 50%, #0e1527 50%, #0e1527 75%, transparent 75%, transparent);
+	background-image: -o-linear-gradient(-45deg, #0e1527 25%, transparent 25%, transparent 50%, #0e1527 50%, #0e1527 75%, transparent 75%, transparent);
+	background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.06) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.06) 75%, transparent 75%, transparent);
+	-webkit-background-size: 40px 40px;
+	-moz-background-size: 40px 40px;
+	-o-background-size: 40px 40px;
+	background-size: 40px 40px;
+	-webkit-animation: progress-bar-stripes 2s linear infinite;
+  -moz-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite;
+  height: 31px;
+	width: 0px;
+	opacity: 0.7
+}
+
+.alerts {
+	display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+	align-items: flex-end;
+	position: absolute;
+	right: 10px;
+	bottom: 150px;
+}
+
+.alert-text {
+		font-size: unset!important;
+		text-align: center;
+		padding-left:20px!important;
+		padding-right:20px;
+		margin-top: -29px!important;
+		opacity: 0.99;
+}
+
+.job-text {
+    padding-top: 6px!important;
+		margin-top: 0px!important;
+		padding-right: 8px!important;
+		font-size: unset!important;
+}
+
+.ammo-text {
+	margin-top: 1px!important;
+}
+
+.item-ammo {
+	bottom: 10px;
+	position: fixed;
+	right: 9px;
+	padding-right: 15px!important;
+	width: auto;
+}
+
+.dark.item-ammo {
+	border-top: 4px solid #383ee5!important;
+}
+
+.text {
+    padding-top: 4px;
+		padding-left: 34px;
+		text-transform: capitalize;
+		font-size: 18px;
+}
+
+.dark .item {
+	background-color: #0e1527!important;
+	border-bottom: unset!important;
+	border-top: 2px solid #383ee5;
+	margin-top: 6px!important;
+}
+
+.dark .text {
+	color: white;
+}
+
+.dark .text-right {
+	margin-top: 0px!important;
+}
+
+.dark img{
+ filter: brightness(1) invert(0.8);
+}
+
+img {
+	width: 24px;
+  position: fixed;
+  padding-top: 3px;
+  padding-left: 4px;
+}
+
+body {
+		font-family: 'Calibri', sans-serif;
+		font-weight: 400;
+		overflow: hidden;
+}

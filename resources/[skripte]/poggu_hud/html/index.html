@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="dark" id="main">
+		<div class="container">
+			<div class="item">
+				<img src="images/money.svg"></img>
+				<p class="text text-right" id="cash">Loading...</p>
+			</div>
+			<div class="item">
+				<img src="images/bank.svg"></img>
+				<p class="text text-right" id="bank">Loading...</p>
+			</div>
+			<div class="item" id="black_money_item">
+				<img src="images/black_money.svg"></img>
+				<p class="text text-right" id="black_money">Loading...</p>
+			</div>
+			<div class="item" id="society_item" style="display:none">
+				<img src="images/society.svg"></img>
+				<p class="text text-right" id="society">Loading...</p>
+			</div>
+		</div>
+		<div class="item item-job">
+			<img src="images/job.png"></img>
+			<p class="job-text text" style="font-family: 'Roboto', sans-serif;">Retrieving data....</p>
+		</div>
+
+		<div class="item item-ammo" id="ammoBox" style="display:none">
+			<img src="https://image.flaticon.com/icons/svg/1461/1461806.svg" class=""></img>
+			<p class="ammo-text text" id="ammoBox-text" style="font-family: 'Roboto', sans-serif;">0/0</p>
+		</div>
+
+		<div class="alerts" id="alerts">
+		</div>
+
+	</div>
+	<script src="main.js" async defer></script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+@font-face {
+	font-family: 'Industry';
+	src: url('fonts/Industry-Medium.ttf') format('truetype');
+	font-weight: 300;
+  }
+  
+  @font-face {
+	font-family: 'Industry';
+	src: url('fonts/Industry-Bold.ttf') format('truetype');
+	font-weight: bold;
+  }
+  
+#glavnidiv {
+  padding-left: 30px;
+  padding-top:20px;
+  width:70%;
+  height: 70%;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0e1527;
+  border-top: 5px solid #383ee5;
+  border-bottom: 5px solid #383ee5;
+  max-height: 900px;
+  overflow: auto;
+  display: none;
+  z-index: 1000;
+}
+
+#naslov {
+  color:white;
+  padding-top: 10px;
+  text-align: left;
+  font-family: "Industry";
+  font-weight: 400;
+  font-size: 50px;
+}
+
+#naslov > #podnaslov{
+  color:white;
+  text-align: left;
+  font-family: "Industry";
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.tilesWrap {
+	padding: 0;
+	margin: 50px auto;
+	list-style: none;
+	text-align: center;
+}
+.tilesWrap li {
+	display: inline-block;
+	width: 20%;
+	min-width: 200px;
+	max-width: 230px;
+	padding: 80px 20px 40px;
+	position: relative;
+	vertical-align: top;
+	margin: 10px;
+	font-family: "Industry";
+	min-height: 25vh;
+	background: #262a2b;
+	border: 1px solid #252727;
+	text-align: left;
+}
+.tilesWrap li h2 {
+	font-size: 114px;
+	margin: 0;
+	position: absolute;
+	opacity: 0.2;
+	top: 50px;
+	right: 10px;
+	transition: all 0.3s ease-in-out;
+}
+.tilesWrap li h3 {
+	font-size: 20px;
+	color: #b7b7b7;
+	margin-bottom: 5px;
+}
+.tilesWrap li p {
+	font-size: 16px;
+	line-height: 18px;
+	color: #b7b7b7;
+	margin-top: 5px;
+}
+.tilesWrap li button {
+	display: block;
+	background: transparent;
+	border: 1px solid #b7b7b7;
+	padding: 10px 20px;
+	color: #b7b7b7;
+	position: relative;
+	transition: all 0.3s ease-in-out;
+	transform: translateY(-40px);
+	opacity: 0;
+	cursor: pointer;
+	overflow: hidden;
+}
+.tilesWrap li button:before {
+	display: block;
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 120%;
+	background: #b7b7b7;
+	top: 0;
+	opacity: 0;
+	left: -140px;
+	z-index: -1;
+	transition: all 0.3s ease-in-out;
+	
+}
+
+.klik {
+
+	color: white;
+	text-align: center;
+	font-family: "Industry";
+	padding-top: 20%;
+
+}
+
+
+.tilesWrap li:hover button {
+	display: block;
+	transform: translateY(5px);
+	opacity: 1;
+}
+.tilesWrap li button:hover {
+	display: block;
+	color: #262a2b;
+}
+.tilesWrap li button:hover:before {
+	display: block;
+	left: 0;
+	opacity: 1;
+}
+.tilesWrap li:hover h2 {
+	top: 0px;
+	opacity: 0.6;
+}
+
+.tilesWrap li:before {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	z-index: -1;
+	background: #fff;
+	transform: skew(2deg, 2deg);
+}
+.tilesWrap li:after {
+	content: '';
+	position: absolute;
+	width: 40%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: rgba(255, 255, 255, 0.02);
+}
+.tilesWrap li:nth-child(1):before {
+	background: #252525;
+background: -webkit-linear-gradient(to right, #383ee5, #383ee5);
+background: linear-gradient(to right, #383ee5, #383ee5);
+}
+.tilesWrap li:nth-child(2):before {
+	background: #f2709c;
+background: -webkit-linear-gradient(to right, #383ee5, #383ee5);
+background: linear-gradient(to right, #383ee5, #383ee5);
+}
+.tilesWrap li:nth-child(3):before {
+	background: #c21500;
+background: -webkit-linear-gradient(to right, #383ee5, #383ee5);
+background: linear-gradient(to right, #383ee5, #383ee5);
+}
+.tilesWrap li:nth-child(4):before {
+	background: #FC354C;
+background: -webkit-linear-gradient(to right, #383ee5, #383ee5  );
+background: linear-gradient(to right, #383ee5, #383ee5);
+}
+
+.disable-select {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
