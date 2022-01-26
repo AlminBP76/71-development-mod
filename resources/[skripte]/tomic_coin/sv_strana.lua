@@ -1,8 +1,9 @@
 -- Made by Tomić#9076
+ESX = nil
 
- TriggerEvent('esx:getSharedObject', function(obj) 
-     ESX = obj 
- end)
+TriggerEvent('esx:getSharedObject', function(obj) 
+    ESX = obj 
+end)
 
 local TrenutniCoinL = {} -- Tabela u koju se store-a trenutno ime lokacije coin-a.
 local TrenutniCoinX = {} -- Tabela u koju se store-a trenutna X kordinata.
