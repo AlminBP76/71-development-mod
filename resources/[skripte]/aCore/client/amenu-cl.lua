@@ -132,7 +132,7 @@ RegisterCommand('+adminmeni', function()
       if playerRank == "owner" or playerRank == "superadmin" or playerRank == "admin" then
 		TriggerEvent("adminContextMeni")
       else
-		exports['okokNotify']:Alert("NEMATE PRISTUP ADMIN MENIJA", "", 4500, 'info')
+		ESX.ShowNotification("Nemate pristup Admin Meniju")
       end
     end)
   end)
@@ -173,7 +173,7 @@ AddEventHandler('adminContextMeni', function()
 			header = "Noclip",
 			txt = "Udji / Izadji iz Noclipa",
 			params = {
-				event = "esx_adminduty:noclip",
+				event = "adminNoclip",
 			}
 		},
 		{
@@ -181,7 +181,7 @@ AddEventHandler('adminContextMeni', function()
 			header = "TPM",
 			txt = "Teleportiraj se na marker",
 			params = {
-				event = "esx_adminduty:tpm",
+				event = "adminTPM",
 			}
 		},
 		{
@@ -234,14 +234,6 @@ AddEventHandler('adminContextMeni', function()
 	},
 	{
 		id = 10,
-		header = "Spectate",
-		txt = "Posmatraj igrace",
-		params = {
-			event = "esx_spectate:spectate",
-		}
-	},
-	{
-		id = 11,
 		header = "Lista igrica",
 		txt = "Pogledaj igrace koji su trenutno na serveru >",
 		params = {
@@ -249,4 +241,36 @@ AddEventHandler('adminContextMeni', function()
 		}
 	}
 	})
+end)
+
+AddEventHandler('almin:popravi', function()
+	local playerPed = PlayerPedId()
+	if IsPedInAnyVehicle(playerPed, false) then
+		local vehicle = GetVehiclePedIsIn(playerPed, false)
+		SetVehicleEngineHealth(vehicle, 1000)
+		SetVehicleEngineOn( vehicle, true, true )
+		SetVehicleFixed(vehicle)
+		exports['okokNotify']:Alert("POPRAVKA", "Tvoje Vozilo je popravljeno", 4500, 'success')
+	else
+		exports['okokNotify']:Alert("UPOZORENJE", "Nisi u Vozilu", 4500, 'error')
+	end
+end)
+
+AddEventHandler('almin:operi', function()
+	local playerPed = GetPlayerPed(-1)
+	if IsPedInAnyVehicle(playerPed, false) then
+		local vehicle = GetVehiclePedIsIn(playerPed, false)
+		SetVehicleDirtLevel(vehicle, 0)
+		exports['okokNotify']:Alert("PRANJE", "Tvoje Vozilo je oprano", 4500, 'success')
+	else
+		exports['okokNotify']:Alert("UPOZORENJE", "Nisi u Vozilu", 4500, 'error')
+	end
+end)
+
+AddEventHandler("adminNoclip", function()
+ 	ExecuteCommand("noclip")
+end)
+
+AddEventHandler("adminTPM", function()
+ 	ExecuteCommand("tpm")
 end)
