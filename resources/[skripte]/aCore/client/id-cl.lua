@@ -33,9 +33,9 @@ Citizen.CreateThread(function()
             if playerDistances[player] ~= nil and playerDistances[player] < disPlayerNames then
               x2, y2, z2 = table.unpack(GetEntityCoords(GetPlayerPed(player), true))
               if not NetworkIsPlayerTalking(player) then
-                DrawText3D(x2, y2, z2+0.94, '[~w~' .. GetPlayerServerId(player) .. '~w~] ~w~' .. GetPlayerName(player))
+                iscrtajTekstIDD(x2, y2, z2+0.94, '[~w~' .. GetPlayerServerId(player) .. '~w~] ~w~' .. GetPlayerName(player))
               else
-                DrawText3D(x2, y2, z2+0.94, '[~w~' .. GetPlayerServerId(player) .. ' ~w~] ~w~' .. GetPlayerName(player))
+                iscrtajTekstIDD(x2, y2, z2+0.94, '[~w~' .. GetPlayerServerId(player) .. ' ~w~] ~w~' .. GetPlayerName(player))
               end
             end
           end
@@ -59,7 +59,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-function DrawText3D(x,y,z, text) 
+function iscrtajTekstIDD(x,y,z, text) 
     local onScreen,_x,_y=World3dToScreen2d(x,y,z)
     local px,py,pz=table.unpack(GetGameplayCamCoords())
     local dist = GetDistanceBetweenCoords(px,py,pz, x,y,z, 1)
