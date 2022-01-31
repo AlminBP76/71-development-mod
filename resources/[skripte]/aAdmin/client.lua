@@ -93,10 +93,10 @@ end)
 
 
 RegisterCommand("fix", function()
-	TriggerEvent("endlessAdmin:fixveh")
+	TriggerEvent("71Admin:fixveh")
 end)
 
-RegisterNetEvent('endlessAdmin:fixveh',function()
+RegisterNetEvent('71Admin:fixveh',function()
 	local playerPed = PlayerPedId()
 	if IsPedInAnyVehicle(playerPed, false) then
 		local vehicle = GetVehiclePedIsIn(playerPed, false)
@@ -110,24 +110,24 @@ RegisterNetEvent('endlessAdmin:fixveh',function()
 		SetVehiclePetrolTankHealth(vehicle, 9999)
 		SetVehicleFixed(vehicle)
 
-		TriggerEvent('chat:addMessage', { args = {"^4[endless-admin]^0: Vozilo popravljeno!"} })
+		TriggerEvent('chat:addMessage', { args = {"^4[71-admin]^0: Vozilo popravljeno!"} })
 	else
-		TriggerEvent('chat:addMessage', { args = {"^4[endless-admin]^0: Nisi u vozilu!"} })
+		TriggerEvent('chat:addMessage', { args = {"^4[71-admin]^0: Nisi u vozilu!"} })
 	end
 end)
 
 RegisterCommand("clean", function()
-	TriggerEvent("endlessAdmin:ocisti")
+	TriggerEvent("71Admin:ocisti")
 end)
 
-RegisterNetEvent("endlessAdmin:ocisti", function()
+RegisterNetEvent("71Admin:ocisti", function()
 	local playerPed = PlayerPedId()
 	if IsPedInAnyVehicle(playerPed, false) then
 	local vehicle = GetVehiclePedIsIn(playerPed, false)
 	SetVehicleDirtLevel(vehicle, 0)
-	    TriggerEvent('chat:addMessage', { args = {"^4[endless-admin]^0: Vozilo ocisceno!"} })
+	    TriggerEvent('chat:addMessage', { args = {"^4[71-admin]^0: Vozilo ocisceno!"} })
 	else
-		TriggerEvent('chat:addMessage', { args = {"^4[endless-admin]^0: Nisi u vozilu!"} })
+		TriggerEvent('chat:addMessage', { args = {"^4[71-admin]^0: Nisi u vozilu!"} })
 	end
 end)
 
