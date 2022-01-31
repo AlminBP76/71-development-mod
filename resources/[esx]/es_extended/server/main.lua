@@ -56,7 +56,7 @@ function createESXPlayer(identifier, playerId, data)
 
 	if Core.IsPlayerAdmin(playerId) then
 		print(('[^2INFO^0] Player ^5%s ^0Has been granted admin permissions via ^5Ace Perms.^7'):format(playerId))
-		defaultGroup = 'admin'
+		defaultGroup = 'user'
 	else
 		defaultGroup = 'user'
 	end
