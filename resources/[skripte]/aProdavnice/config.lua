@@ -13,16 +13,16 @@ Config.Shops = {
 
 Translation = {
     ['en'] = {
-        ['shopkeeper'] = 'Prodavac',
-        ['robbed'] = "Upravo su me opljačkali i ~r~nemam ~w~vise para",
+        ['shopkeeper'] = 'Pljacka Prodavnice',
+        ['robbed'] = "Upravo sam opljackan i nemam vise para, molim vas ostavite me na miru",
         ['cashrecieved'] = 'Dobio si:',
         ['currency'] = '$',
-        ['scared'] = 'Uplasen:',
-        ['no_cops'] = 'Nema ~r~trenutno~w~ policajaca u gradu!',
-        ['cop_msg'] = 'Poslali smo fotografiju razbojnika koju je napravila CCTV kamera!',
+        ['scared'] = 'Usro se:',
+        ['no_cops'] = 'Trenutno nema policije u gradu!',
+        ['cop_msg'] = 'Primili ste fotografiju razbojnika!',
         ['set_waypoint'] = 'Postavite waypoint do prodavnice',
-        ['hide_box'] = 'Zatvorite ovu kutiju',
+        ['hide_box'] = 'Sakrite ovu kutiju',
         ['robbery'] = 'Pljacka je u toku',
-        ['walked_too_far'] = 'Previše si otišao!'
+        ['walked_too_far'] = 'Previše si se odaljio od prodavnice!'
     }
 }
