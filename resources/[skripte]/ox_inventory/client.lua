@@ -23,7 +23,7 @@ local invOpen = false
 local function CanOpenInventory()
 	return PlayerData.loaded
 	and not invBusy
-	and not PlayerData.dead
+	--and not PlayerData.dead
 	and not GetPedConfigFlag(PlayerData.ped, 120, true)
 	and (currentWeapon == nil or currentWeapon.timer == 0)
 	and not IsPauseMenuActive()
