@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#bankui {
+    opacity: 0;
+    transition: 0.5s ease-in-out opacity;
+}
+
+*:focus {
+    outline: none;
+}
+
+.close {
+    display: block;
+    top: 0;
+    margin-left: auto;
+    height: 25px;
+    width: 25px;
+    border: none;
+    background-color: #57007F;
+    border-left: 1px solid rgba(44, 44, 44, 0.97);
+    border-bottom: 1px solid   rgba(44, 44, 44, 0.97);
+    color:   rgba(44, 44, 44, 0.97);
+    transition: 0.4s ease-in-out background-color;
+}
+
+.close:hover {
+    background-color: rgba(126, 27, 27, 0.8);
+}
+
+.container {
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 950px;
+    height: 390px;
+    background-color:  rgba(44, 44, 44, 0.97);
+    border: 3px solid  #57007F;
+    margin-top: 15%;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.left {
+    width: 30%;
+    height: 340px !important;
+    text-align: left;
+    border-right: 2px solid #57007F;
+}
+
+.right {
+    width: 70%;
+    height: 100%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding: 10px;
+}
+
+.logo {
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #57007F;
+}
+
+.account-info {
+    font-size: 12px;
+}
+
+.welcome {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.info-label {
+    margin-top: 10px;
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: -1.5px;
+    color: #57007F;
+    text-align: center;
+}
+
+.blue-color {
+    color: #57007F;
+}
+
+.red-color {
+    color: #57007F;
+}
+
+.balance, .creation {
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.quick-msg {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-quick {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #57007F;
+    color: #000000;
+    border-radius: 8px;
+    border: 1px solid #57007F;
+    transition: 0.2s ease-in-out all;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.label-sm {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.m-top {
+    margin-top: 12px;
+}
+
+.m-top-med {
+    margin-top: 40px;
+}
+
+.m-top-big {
+    margin-top: 40px;
+}
+
+.m-top-bigger {
+    margin-top: 65px;
+}
+
+
+input[type="number"] {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #000000;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.btn {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 40px;
+    background-color: #57007F;
+    color: #000000;
+    border-radius: 8px;
+    border: 1px solid #57007F;
+    transition: 0.2s ease-in-out all;
+}
+
+.blue-btn {
+    background-color: #57007F;
+    border: 1px solid  #57007F;
+}
+
+.red-btn {
+    background-color:#57007F;
+    border: 1px solid  #57007F;
+}
+
+.red-border {
+    border: 2px solid #57007F;
+}
+
+.blue-border {
+    border: 2px solid #57007F;
+}
+
+.btn:hover, .btn-quick:hover {
+    border: 3px solid#57007F;
+}
+
+.red-btn:hover {
+    border: 3px solid#57007F;
+}
+
+.red-close {
+    background-color: #57007F;
+}
+
+.blue-close {
+    background-color:  #57007F;
+}
+
+.column-2nd {
+    float: left;
+    width: 50%;
+}
+
+.row-2nd:after {
+    content: "";
+    display: table;
+    clear: both;
+}
