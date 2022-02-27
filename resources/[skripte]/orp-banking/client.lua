@@ -56,17 +56,7 @@ function openPlayersBank(type, color)
     end
 
     TaskPlayAnim(ped, dict, anim, 8.0, 8.0, -1, 0, 0, 0, 0, 0)
-    exports.ox_inventory:Progress({
-        duration = time,
-        label = 'Umetanje kartice...',
-        useWhileDead = false,
-        canCancel = false,
-        disable = {
-            move = true,
-            car = false,
-            combat = false,
-            mouse = true
-        },
+exports.rprogress:Start("Umetanje kartice...", time)
     Citizen.Wait(time)
     ClearPedTasks(ped)
     if type == 'bank' then
@@ -184,17 +174,7 @@ function closePlayersBank()
     SetNuiFocus(false, false)
     SendNUIMessage({type = 'closeAll'})
     TaskPlayAnim(ped, dict, anim, 8.0, 8.0, -1, 0, 0, 0, 0, 0)
-    exports.ox_inventory:Progress({
-        duration = time,
-        label = 'Izvlacenje kartice...',
-        useWhileDead = false,
-        canCancel = false,
-        disable = {
-            move = true,
-            car = false,
-            combat = false,
-            mouse = true
-        },
+    exports.rprogress:Start("Izvlacenje kartice...", time)
     Citizen.Wait(time)
     ClearPedTasks(ped)
     inMenu = false
