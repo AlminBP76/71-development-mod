@@ -223,8 +223,7 @@ exports['qtarget']:AddTargetModel(bankomatUkopani, {
             label = "Pristupi Bankomatu",
         },
     },
-    job = {["all"] = { grade = 0}},
-    distance = 1.2
+    distance = 1.8
 })
 
 exports['qtarget']:AddBoxZone("FleecaLegionRight", vector3(145.8462, -1035.6, 29.33044), 0.5, 1.0, {
@@ -241,7 +240,6 @@ exports['qtarget']:AddBoxZone("FleecaLegionRight", vector3(145.8462, -1035.6, 29
             label = "Pristupi bankovnom racunu",
         },
     },
-    job = {["all"] = { grade = 0}},
     distance = 1.2
 })
 
@@ -259,7 +257,6 @@ exports['qtarget']:AddBoxZone("FleecaLegionLeft", vector3(147.5, -1036.2, 29.330
             label = "Pristupi bankovnom racunu",
         },
     },
-    job = {["all"] = { grade = 0}},
     distance = 1.2
 })
 
@@ -277,7 +274,6 @@ exports['qtarget']:AddBoxZone("Pacific-standard", vector3(247.66, 223.78, 106.29
 	label = "Pristupi bankovnom racunu.",
 	},
 },
-job = {["all"] = { grade = 0}},
 	distance = 3.0
 })
 
@@ -295,7 +291,6 @@ exports['qtarget']:AddBoxZone("Hawick Avenu-Bank", vector3(313.84, -279.69, 53.3
 	label = "Pristupi bankovnom racunu.",
 	},
 },
-job = {["all"] = { grade = 0}},
 	distance = 2.5
 })
 
@@ -313,7 +308,6 @@ exports['qtarget']:AddBoxZone("Hawick Avenue-Bank2", vector3(-351.82, -50.28, 48
 	label = "Pristupi bankovnom racunu.",
 	},
 },
-job = {["all"] = { grade = 0}},
 	distance = 2.5
 })
 
@@ -331,7 +325,6 @@ exports['qtarget']:AddBoxZone("Boulevard Del-Perro-Bank", vector3(-1212.96, -331
 	label = "Pristupi bankovnom racunu.",
 	},
 },
-job = {["all"] = { grade = 0}},
 	distance = 3.5
 })
 
@@ -349,7 +342,6 @@ exports['qtarget']:AddBoxZone("Vespucci Boulevard-Bank", vector3(149.06, -1041.0
 	label = "Pristupi bankovnom racunu.",
 	},
 },
-	job = {["all"] = { grade = 0}},
 	distance = 2.5
 })
 
@@ -367,7 +359,6 @@ exports['qtarget']:AddBoxZone("Great Ocean Highway-Bank", vector3(-2962.18, 482.
 	label = "Pristupi bankovnom racunu.",
 	},
 },
-	job = {["all"] = { grade = 0}},
 	distance = 2.5
 })
 
@@ -385,7 +376,6 @@ exports['qtarget']:AddBoxZone("Route 68-Bank", vector3(1175.67, 2707.55, 37.89),
 	label = "Pristupi bankovnom racunu.",
 	},
 },
-	job = {["all"] = { grade = 0}},
 	distance = 2.5
 })
 
@@ -403,7 +393,6 @@ exports['qtarget']:AddBoxZone("Grapeseed-Bank", vector3(1652.55, 4851.05, 41.82)
 	label = "Pristupi bankovnom racunu.",
 	},
 },
-	job = {["all"] = { grade = 0}},
 	distance = 2.5
 })
 
@@ -421,6 +410,5 @@ exports['qtarget']:AddBoxZone("Blaine County Savings-Bank", vector3(-112.07, 647
 	label = "Pristupi bankovnom racunu.",
 	},
 },
-	job = {["all"] = { grade = 0}},
 	distance = 2.5
 })
