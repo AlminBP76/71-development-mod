@@ -91,7 +91,8 @@ RegisterNUICallback('chatResult', function(data, cb)
      -- TriggerServerEvent('logovi:komande', data)
       ExecuteCommand(data.message:sub(2))
     else
-      TriggerServerEvent('_chat:messageEntered', GetPlayerName(id), { r, g, b }, data.message)
+         --- nek bude prazno
+      --TriggerServerEvent('_chat:messageEntered', GetPlayerName(id), { r, g, b }, data.message) --fix za ono da se vide sve poruke
     end
   end
   cb('ok')
