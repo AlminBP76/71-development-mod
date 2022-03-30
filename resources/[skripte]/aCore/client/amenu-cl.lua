@@ -127,7 +127,7 @@ AddEventHandler('vozilaMeniAdmini', function()
 	})
 end)
 
-RegisterCommand('+adminmeni', function()
+RegisterCommand('meni', function()
     ESX.TriggerServerCallback("aCore:pokupiRank", function(playerRank)
       if playerRank == "owner" or playerRank == "superadmin" or playerRank == "admin" then
 		TriggerEvent("adminContextMeni")
@@ -137,7 +137,7 @@ RegisterCommand('+adminmeni', function()
     end)
   end)
 
-  RegisterKeyMapping('+adminmeni', 'Otvori Admin Meni', 'keyboard', 'F3')
+  RegisterKeyMapping('meni', 'Otvori Admin Meni', 'keyboard', 'F5')
 
   AddEventHandler('ideviAdminMeni', function()
 	ExecuteCommand('id')
