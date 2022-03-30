@@ -3,4 +3,4 @@ Predstavljam vam 71 Development Mod, kreiran od mene, AlminBP76 i uz malu pomoc 
 
 U slucaju da vam je potrebna pomoc mozete nas kontaktirati putem Diskorda: https://www.71-development.de/
 
-Fixan verzija u potpunosti ako trebate bilo kakvu pomoć:https://discord.gg/d3cqgVRKb4
+Fixana verzija u potpunosti ako trebate bilo kakvu pomoć:https://discord.gg/d3cqgVRKb4
