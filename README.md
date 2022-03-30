@@ -3,5 +3,4 @@ Predstavljam vam 71 Development Mod, kreiran od mene, AlminBP76 i uz malu pomoc 
 
 U slucaju da vam je potrebna pomoc mozete nas kontaktirati putem Diskorda: https://www.71-development.de/
 
-
-Verzija na githubu trenutno nije u najboljoj funkciji, skinite ovu: https://www.mediafire.com/file/ewi66jyos3dukmk/71-dev-mod-backup.zip/file     
+Fixan verzija u potpunosti ako trebate bilo kakvu pomoć:https://discord.gg/d3cqgVRKb4
