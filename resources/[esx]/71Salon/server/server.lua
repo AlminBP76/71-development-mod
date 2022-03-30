@@ -13,7 +13,8 @@ AddEventHandler('71Salon:requestInfo', function()
     local rows    
 
     TriggerClientEvent('71Salon:receiveInfo', src, xPlayer.getMoney())
-    TriggerClientEvent("71Salon:notify", src, 'error', 'Koristi A i D da rotiras vozilo')
+		
+    TriggerClientEvent('okokNotify:Alert', source, "Autosalon", "Koristi A i D da rotiras vozilo", Time, 'info')
 end)
 
 ESX.RegisterServerCallback('71Salon:isPlateTaken', function (source, cb, plate)
@@ -73,7 +74,7 @@ AddEventHandler('71Salon:CheckMoneyForVeh', function(veh, price, name, vehiclePr
 			TriggerClientEvent('71Salon:spawnVehicle', _source, veh, vehicleProps.plate)
 		end)
 	else
-		TriggerClientEvent('esx:showNotification', source, 'Nemas dovoljno novca')
+		TriggerClientEvent('okokNotify:Alert', source, "Autosalon", "Nemas dovoljno novca", Time, 'error')
 
 	end
 end)
