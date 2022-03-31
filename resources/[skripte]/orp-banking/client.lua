@@ -46,9 +46,7 @@ end)--]] ----AKO HOCETE PREKO KOMANDE MAKNITE KOMENTAR
 
 RegisterNetEvent('orp:bankomati')
 AddEventHandler('orp:bankomati', function(balance)
-if playerNearATM() then
 openPlayersBank('atm')
-end
 end)
 
 RegisterNetEvent('orp:banka')
@@ -233,7 +231,7 @@ local bankomatUkopani = {
 exports['qtarget']:AddTargetModel(bankomatUkopani, {
     options = {
         {
-            event = "banking:showMeMoney",
+            event = "orp:bankomati",
             icon = "fas fa-credit-card",
             label = "Pristupi Bankomatu",
         },
