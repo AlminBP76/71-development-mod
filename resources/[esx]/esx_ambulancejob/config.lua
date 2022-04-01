@@ -38,6 +38,27 @@ Config.Hospitals = {
 			color  = 2
 		},
 
+		AmbulanceActions = {
+			vector3(298.5574, -598.491, 43.283)
+		},
+
+		Pharmacies = {
+			vector3(310.1578, -568.406, 43.284)
+		},
+
+		Vehicles = {
+			{
+				Spawner = vector3(299.1848, -576.540, 43.259),
+				InsideShop = vector3(446.7, -1355.6, 43.5),
+				Marker = {type = 36, x = 1.0, y = 1.0, z = 1.0, r = 100, g = 50, b = 200, a = 100, rotate = true},
+				SpawnPoints = {
+					{coords = vector3(291.7774, -587.624, 43.187), heading = 54.57, radius = 4.0},
+					{coords = vector3(291.7774, -587.624, 43.187), heading = 54.57, radius = 4.0},
+					{coords = vector3(291.7774, -587.624, 43.187), heading = 54.57, radius = 6.0}
+				}
+			}
+		},
+
 		Helikopteri = {
 			{
 			    Spawner = vector3(307.56,-1457.56,46.51),
