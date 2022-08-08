@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 server_scripts {
-	'@mysql-async/lib/MySQL.lua',			
+	'@oxmysql/lib/MySQL.lua',			
 	'config.lua',
 	'71_ListaVozila.lua',
 	'server/server.lua',
