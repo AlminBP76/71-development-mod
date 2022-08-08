@@ -274,7 +274,7 @@ AddEventHandler("lvc_TogIndicState_c", function(sender, newstate)
 	local player_s = GetPlayerFromServerId(sender)
 	local ped_s = GetPlayerPed(player_s)
 	if DoesEntityExist(ped_s) and not IsEntityDead(ped_s) then
-		if ped_s ~= GetPlayerPed(-1) then
+		if ped_s ~= PlayerPedId() then
 			if IsPedInAnyVehicle(ped_s, false) then
 				local veh = GetVehiclePedIsUsing(ped_s)
 				TogIndicStateForVeh(veh, newstate)
@@ -289,7 +289,7 @@ AddEventHandler("lvc_TogDfltSrnMuted_c", function(sender, toggle)
 	local player_s = GetPlayerFromServerId(sender)
 	local ped_s = GetPlayerPed(player_s)
 	if DoesEntityExist(ped_s) and not IsEntityDead(ped_s) then
-		if ped_s ~= GetPlayerPed(-1) then
+		if ped_s ~= PlayerPedId() then
 			if IsPedInAnyVehicle(ped_s, false) then
 				local veh = GetVehiclePedIsUsing(ped_s)
 				TogMuteDfltSrnForVeh(veh, toggle)
@@ -304,7 +304,7 @@ AddEventHandler("lvc_SetLxSirenState_c", function(sender, newstate)
 	local player_s = GetPlayerFromServerId(sender)
 	local ped_s = GetPlayerPed(player_s)
 	if DoesEntityExist(ped_s) and not IsEntityDead(ped_s) then
-		if ped_s ~= GetPlayerPed(-1) then
+		if ped_s ~= PlayerPedId() then
 			if IsPedInAnyVehicle(ped_s, false) then
 				local veh = GetVehiclePedIsUsing(ped_s)
 				SetLxSirenStateForVeh(veh, newstate)
@@ -319,7 +319,7 @@ AddEventHandler("lvc_TogPwrcallState_c", function(sender, toggle)
 	local player_s = GetPlayerFromServerId(sender)
 	local ped_s = GetPlayerPed(player_s)
 	if DoesEntityExist(ped_s) and not IsEntityDead(ped_s) then
-		if ped_s ~= GetPlayerPed(-1) then
+		if ped_s ~= PlayerPedId() then
 			if IsPedInAnyVehicle(ped_s, false) then
 				local veh = GetVehiclePedIsUsing(ped_s)
 				TogPowercallStateForVeh(veh, toggle)
@@ -334,7 +334,7 @@ AddEventHandler("lvc_SetAirManuState_c", function(sender, newstate)
 	local player_s = GetPlayerFromServerId(sender)
 	local ped_s = GetPlayerPed(player_s)
 	if DoesEntityExist(ped_s) and not IsEntityDead(ped_s) then
-		if ped_s ~= GetPlayerPed(-1) then
+		if ped_s ~= PlayerPedId() then
 			if IsPedInAnyVehicle(ped_s, false) then
 				local veh = GetVehiclePedIsUsing(ped_s)
 				SetAirManuStateForVeh(veh, newstate)
@@ -346,13 +346,13 @@ end)
 
 
 ---------------------------------------------------------------------
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
 			
 			CleanupSounds()
 			
 			----- IS IN VEHICLE -----
-			local playerped = GetPlayerPed(-1)		
+			local playerped = PlayerPedId()		
 			if IsPedInAnyVehicle(playerped, false) then	
 			
 				----- IS DRIVER -----
@@ -631,6 +631,6 @@ Citizen.CreateThread(function()
 				end
 			end
 			
-		Citizen.Wait(0)
+		Wait(0)
 	end
 end)

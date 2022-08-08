@@ -1,14 +1,14 @@
 ESX = exports['es_extended']:getSharedObject()
 if ESX.GetConfig().Multichar then
 
-	Citizen.CreateThread(function()
+	CreateThread(function()
 		while not ESX.PlayerLoaded do
-			Citizen.Wait(0)
+			Wait(0)
 			if NetworkIsPlayerActive(PlayerId()) then
 				exports.spawnmanager:setAutoSpawn(false)
 				DoScreenFadeOut(0)
 				while not GetResourceState('esx_menu_default') == 'started' do
-					Citizen.Wait(0)
+					Wait(0)
 				end
 				TriggerEvent("esx_multicharacter:SetupCharacters")
 				break
@@ -40,14 +40,14 @@ if ESX.GetConfig().Multichar then
 		ShutdownLoadingScreen()
 		ShutdownLoadingScreenNui()
 		TriggerEvent('esx:loadingScreenOff')
-		Citizen.Wait(200)
+		Wait(200)
 		TriggerServerEvent("esx_multicharacter:SetupCharacters")
 	end)
 
 	StartLoop = function()
 		hidePlayers = true
 		MumbleSetVolumeOverride(PlayerId(), 0.0)
-		Citizen.CreateThread(function()
+		CreateThread(function()
 			local keys = {18, 27, 172, 173, 174, 175, 176, 177, 187, 188, 191, 201, 108, 109}
 			while hidePlayers do
 				DisableAllControlActions(0)
@@ -62,7 +62,7 @@ if ESX.GetConfig().Multichar then
 				HideHudComponentThisFrame(12)
 				HideHudComponentThisFrame(21)
 				HideHudAndRadarThisFrame()
-				Citizen.Wait(0)
+				Wait(0)
 				local vehicles = GetGamePool('CVehicle')
 				for i=1, #vehicles do
 					SetEntityLocallyInvisible(vehicles[i])
@@ -73,10 +73,10 @@ if ESX.GetConfig().Multichar then
 			SetEntityVisible(playerPed, 1, 0)
 			SetPlayerInvincible(playerId, 0)
 			FreezeEntityPosition(playerPed, false)
-			Citizen.Wait(10000)
+			Wait(10000)
 			canRelog = true
 		end)
-		Citizen.CreateThread(function()
+		CreateThread(function()
 			local playerPool = {}
 			while hidePlayers do
 				local players = GetActivePlayers()
@@ -87,7 +87,7 @@ if ESX.GetConfig().Multichar then
 						NetworkConcealPlayer(player, true, true)
 					end
 				end
-				Citizen.Wait(500)
+				Wait(500)
 			end
 			for k in pairs(playerPool) do
 				NetworkConcealPlayer(k, false, false)
@@ -115,14 +115,14 @@ if ESX.GetConfig().Multichar then
 				end
 				DoScreenFadeIn(400)
 			end)
-		repeat Citizen.Wait(200) until not IsScreenFadedOut()
+		repeat Wait(200) until not IsScreenFadedOut()
 
 		elseif Characters[index] and Characters[index].skin then
 			if Characters[spawned] and Characters[spawned].model then
 				RequestModel(Characters[index].model)
 				while not HasModelLoaded(Characters[index].model) do
 					RequestModel(Characters[index].model)
-					Citizen.Wait(0)
+					Wait(0)
 				end
 				SetPlayerModel(PlayerId(), Characters[index].model)
 				SetModelAsNoLongerNeeded(Characters[index].model)
@@ -163,7 +163,7 @@ if ESX.GetConfig().Multichar then
 			}, function()
 				canRelog = false
 				DoScreenFadeIn(400)
-				Citizen.Wait(400)
+				Wait(400)
 				local playerPed = PlayerPedId()
 				SetPedAoBlobRendering(playerPed, false)
 				SetEntityAlpha(playerPed, 0)
@@ -276,7 +276,7 @@ if ESX.GetConfig().Multichar then
 			RequestModel(model)
 			while not HasModelLoaded(model) do
 				RequestModel(model)
-				Citizen.Wait(0)
+				Wait(0)
 			end
 			SetPlayerModel(PlayerId(), model)
 			SetModelAsNoLongerNeeded(model)
@@ -290,7 +290,7 @@ if ESX.GetConfig().Multichar then
 					finished = true end, function() finished = true
 				end)
 			end)
-			repeat Citizen.Wait(200) until finished
+			repeat Wait(200) until finished
 		end
 		DoScreenFadeOut(100)
 
@@ -302,9 +302,9 @@ if ESX.GetConfig().Multichar then
 		SetEntityCoordsNoOffset(playerPed, spawn.x, spawn.y, spawn.z, false, false, false, true)
 		SetEntityHeading(playerPed, spawn.heading)
 		if not isNew then TriggerEvent('skinchanger:loadSkin', skin or Characters[spawned].skin) end
-		Citizen.Wait(400)
+		Wait(400)
 		DoScreenFadeIn(400)
-		repeat Citizen.Wait(200) until not IsScreenFadedOut()
+		repeat Wait(200) until not IsScreenFadedOut()
 		TriggerServerEvent('esx:onPlayerSpawn')
 		TriggerEvent('esx:onPlayerSpawn')
 		TriggerEvent('playerSpawned')

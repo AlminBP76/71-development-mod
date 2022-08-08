@@ -4,9 +4,9 @@ local isEnteringVehicle = false
 local currentVehicle = 0
 local currentSeat = 0
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(500)
+		Wait(500)
 		local ped = PlayerPedId()
 
 		if not isInVehicle and not IsPlayerDead(PlayerId()) then
@@ -45,7 +45,7 @@ Citizen.CreateThread(function()
 				currentSeat = 0
 			end
 		end
-		Citizen.Wait(500)
+		Wait(500)
 	end
 end)
 

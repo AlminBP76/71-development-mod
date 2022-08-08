@@ -16,7 +16,7 @@ end
 
 function DoVehicleDamage(vehicle, health)
     if health ~= nil then
-        Citizen.Wait(1500)
+        Wait(1500)
         health.engine = ESX.Math.Round(health.engine, 2)
         health.body = ESX.Math.Round(health.body, 2)
 
@@ -157,7 +157,7 @@ exports['qtarget']:Vehicle({
 	distance = 2.5
 })
 
-Citizen.CreateThread(function()
+CreateThread(function()
     for k, v in pairs(Config.Garages) do
 
         GarageBlips(vector3(v.pedCoords.x, v.pedCoords.y, v.pedCoords.z), v.type, v.label, v.job, v.blip)
@@ -221,7 +221,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     local impoundPeds = {Config.DefaultImpoundPed}
     for k, v in pairs(Config.Impounds) do
 

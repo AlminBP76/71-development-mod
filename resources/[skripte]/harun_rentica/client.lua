@@ -1,10 +1,10 @@
 local PlayerData = {}
 ESX = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
+		Wait(0)
 	end
 end)
 
@@ -12,14 +12,14 @@ end)
 -- Spawn forklift
 function prvoauto()
 
-	local ped = GetPlayerPed(-1)
+	local ped = PlayerPedId()
 	local vehicleName = 'sultan'
   
    RequestModel(vehicleName)
   
    -- wait for the model to load
 	while not HasModelLoaded(vehicleName) do
-		Wait(500) -- often you'll also see Citizen.Wait
+		Wait(500) -- often you'll also see Wait
 	end
   
 	local vehicle = CreateVehicle(vehicleName, -1026.61, -2736.58, 20.59, 5.60, true, false)
@@ -41,14 +41,14 @@ function prvoauto()
   -- Spawn forklift
   function drugoauto()
   
-	local ped = GetPlayerPed(-1)
+	local ped = PlayerPedId()
 	local vehicleName = 'blista'
   
    RequestModel(vehicleName)
   
    -- wait for the model to load
 	while not HasModelLoaded(vehicleName) do
-		Wait(500) -- often you'll also see Citizen.Wait
+		Wait(500) -- often you'll also see Wait
 	end
   
 	local vehicle = CreateVehicle(vehicleName, -1026.61, -2736.58, 20.59, 5.60, true, false)
@@ -70,14 +70,14 @@ function prvoauto()
   -- Spawn forklift
   function treceauto()
   
-	  local ped = GetPlayerPed(-1)
+	  local ped = PlayerPedId()
 	  local vehicleName = 'rmodx6'
   
 	 RequestModel(vehicleName)
   
 	 -- wait for the model to load
 	  while not HasModelLoaded(vehicleName) do
-		  Wait(500) -- often you'll also see Citizen.Wait
+		  Wait(500) -- often you'll also see Wait
 	  end
   
 	  local vehicle = CreateVehicle(vehicleName, -1026.61, -2736.58, 20.59, 5.60, true, false)
@@ -95,10 +95,10 @@ function prvoauto()
   
   end
   
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         for i = 1, #Config.Kordinati, 1 do -- vuce iz Configa
-            sleep = 1500 -- sleep koji je definisan kako bi se koristio u Citizen.Wait(sleep) kako bi marker spavao i manje vukao dok se ne koristi!
+            sleep = 1500 -- sleep koji je definisan kako bi se koristio u Wait(sleep) kako bi marker spavao i manje vukao dok se ne koristi!
             local playerPed = PlayerPedId() -- definiran igrac
 			local dict = "missminuteman_1ig_2"
 			local igrac = PlayerPedId()
@@ -117,7 +117,7 @@ Citizen.CreateThread(function()
 					end
                 end -- end
             end -- end
-            Citizen.Wait(sleep) -- wait, ne diraj
+            Wait(sleep) -- wait, ne diraj
         end -- end
     end -- end
 end)-- end

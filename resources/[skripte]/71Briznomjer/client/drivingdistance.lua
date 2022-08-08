@@ -3,7 +3,7 @@ local previousvehiclepos = nil
 local CheckDone = false
 DrivingDistance = {}
 
-Citizen.CreateThread(function()
+CreateThread(function()
     Wait(500)
     while true do
         local ped = PlayerPedId()
@@ -90,15 +90,15 @@ Citizen.CreateThread(function()
         end
 
         if invehicle then
-            Citizen.Wait(2000)
+            Wait(2000)
         else
-            Citizen.Wait(500)
+            Wait(500)
         end
     end
 end)
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do               
         local ped = PlayerPedId()
         local veh = GetVehiclePedIsIn(ped)

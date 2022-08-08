@@ -257,7 +257,7 @@ AddEventHandler('almin:popravi', function()
 end)
 
 AddEventHandler('almin:operi', function()
-	local playerPed = GetPlayerPed(-1)
+	local playerPed = PlayerPedId()
 	if IsPedInAnyVehicle(playerPed, false) then
 		local vehicle = GetVehiclePedIsIn(playerPed, false)
 		SetVehicleDirtLevel(vehicle, 0)

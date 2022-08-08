@@ -6,7 +6,7 @@ AddEventHandler("benno_skilovi:Pancir", function()
 
 	TriggerEvent("bfunkcije:tajmerdosto", "Stavljanje pancira...", 5, true, function(jel)
 		if not jel then
-			SetPedArmour(GetPlayerPed(-1), 100)
+			SetPedArmour(PlayerPedId(), 100)
 		end
 
 		ClearPedTasks(PlayerPedId())
@@ -31,7 +31,7 @@ AddEventHandler("benno_skilovi:bandage", function()
 	TriggerEvent("bfunkcije:tajmerdosto", "Apliciranje zavoja...", 5, true, function(jel)
 		if not jel then
 			while GetEntityHealth(PlayerPedId()) < GetEntityMaxHealth(PlayerPedId()) do
-				Citizen.Wait(1000)
+				Wait(1000)
 				SetEntityHealth(PlayerPedId(), GetEntityHealth(PlayerPedId()) + 5)
 			end
 		end

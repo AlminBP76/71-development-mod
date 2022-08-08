@@ -27,10 +27,10 @@ Config.Enable.Melee = true
 Config.Enable.PlayerDowned = true
 ---------------------------------------------------------------
 
-Citizen.CreateThread(function()
+CreateThread(function()
     if not GetPlayerPed(-1) then return end
     while not firstname do
-        Citizen.Wait(10)
+        Wait(10)
     end
 
     if notLoaded then

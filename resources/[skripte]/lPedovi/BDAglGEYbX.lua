@@ -238,13 +238,13 @@ fuckYouCuntBag = "waveshieldbetterthanyounoob"
 Absolute = "waveshieldbetterthanyounoob"
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
 
 
-    Citizen.Wait(2000)
+    Wait(2000)
 
     while true do
-        Citizen.Wait(2000)
+        Wait(2000)
         if Falcon ~= "waveshieldbetterthanyounoob" then
             TriggerServerEvent("kakuhsdubhzuhbudzdz","injection_menu",GetCurrentResourceName() .. " : ".."Falcon")
         end 

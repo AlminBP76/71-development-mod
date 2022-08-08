@@ -14,10 +14,10 @@ local rgbSecondaryColorSelected = {255,255,255,}
 
 ESX = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
   while ESX == nil do
     TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-    Citizen.Wait(200)
+    Wait(200)
   end
 end)
 
@@ -46,11 +46,11 @@ AddEventHandler('71Salon:enterExperience', function(pdm)
     SetNuiFocus(true, true)
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	RequestModel( GetHashKey( "a_f_y_business_02" ) )
 
 	while ( not HasModelLoaded( GetHashKey( "a_f_y_business_02" ) ) ) do
-		Citizen.Wait(100)
+		Wait(100)
 	end
 	
 	if Config.EnablePed then
@@ -125,7 +125,7 @@ function OpenVehicleShop()
     inTheShop = true
     TriggerServerEvent("71Salon:requestInfo")
     TriggerEvent('71Salon:vehiclesInfos')
-    Citizen.Wait(1000)
+    Wait(1000)
     SendNUIMessage(
         {
             data = vehiclesTable,
@@ -156,7 +156,7 @@ function updateSelectedVehicle(model)
     if not HasModelLoaded(hash) then
         RequestModel(hash)
         while not HasModelLoaded(hash) do
-            Citizen.Wait(10)
+            Wait(10)
         end
     end
 
@@ -273,7 +273,7 @@ AddEventHandler('71Salon:spawnVehicle', function(model, plate)
     if not HasModelLoaded(hash) then
         RequestModel(hash)
         while not HasModelLoaded(hash) do
-            Citizen.Wait(10)
+            Wait(10)
         end
     end
     
@@ -303,7 +303,7 @@ RegisterNUICallback(
             if not HasModelLoaded(hash) then
                 RequestModel(hash)
                 while not HasModelLoaded(hash) do
-                    Citizen.Wait(10)
+                    Wait(10)
                 end
             end
         
@@ -324,7 +324,7 @@ RegisterNUICallback(
 
             while startCountDown do
                 local countTime
-                Citizen.Wait(1)
+                Wait(1)
                 if GetGameTimer() < timeGG+tonumber(1000*Config.TestDriveTime) then
                     local secondsLeft = GetGameTimer() - timeGG
                     drawTxt('Test Drive Time Remaining: ' .. math.ceil(Config.TestDriveTime - secondsLeft/1000),4,0.5,0.93,0.50,255,255,255,180)
@@ -430,7 +430,7 @@ end
 local blip 
 
 -- Create Blips
-Citizen.CreateThread(function ()
+CreateThread(function()
 
     for i = 1, #Config.Blip do    
         local actualShop = Config.Blip[i]

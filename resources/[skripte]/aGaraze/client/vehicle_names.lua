@@ -1,4 +1,4 @@
-Citizen.CreateThread(function()
+CreateThread(function()
     -- AddTextEntry('modelName', 'label')
     -- AddTextEntry('vehicleMakeName', 'label')
 

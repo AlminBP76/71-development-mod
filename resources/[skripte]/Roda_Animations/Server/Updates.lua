@@ -1,5 +1,5 @@
 if Config.CheckForUpdates then
-    Citizen.CreateThread( function()
+    CreateThread(function()
         -- Turned off due to a lot of edits 
         --updatePath = "/andristum/dpemotes"
         --resourceName = "dp Emotes ("..GetCurrentResourceName()..")"

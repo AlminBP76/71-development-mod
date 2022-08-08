@@ -105,7 +105,7 @@ function getUserTwitterAccount(source, _identifier)
 end
 
 function karakteribekle(source, identifier)
-    Citizen.Wait(60000)
+    Wait(60000)
     local _source = source
     local xidentifier = identifier
     getUserTwitterAccount(_source, xidentifier)

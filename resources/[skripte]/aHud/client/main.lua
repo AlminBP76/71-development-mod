@@ -1,13 +1,13 @@
 ESX = nil
 PlayerData = {}
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent("esx:getSharedObject", function(obj) ESX = obj end)
-		Citizen.Wait(200) -- 0 ne moze, msm moze al resmon u kurcu, 200 refresha svakih 2 sekunde
+		Wait(200) -- 0 ne moze, msm moze al resmon u kurcu, 200 refresha svakih 2 sekunde
 	end
 	while ESX.GetPlayerData().job == nil do
-		Citizen.Wait(200) -- 0 ne moze, msm moze al resmon u kurcu, 200 refresha svakih 2 sekunde
+		Wait(200) -- 0 ne moze, msm moze al resmon u kurcu, 200 refresha svakih 2 sekunde
 	end
 	PlayerData = ESX.GetPlayerData()
 end)
@@ -18,7 +18,7 @@ local food = 0
 local thirst = 0
 local stress = 0
 local spavanje = 0
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         Wait(200)
 
@@ -31,10 +31,10 @@ end)
 
 
 
-Citizen.CreateThread(
+CreateThread(
     function()
         while true do
-            Citizen.Wait(1000)
+            Wait(1000)
             
             local hudPosition
 
@@ -70,12 +70,12 @@ Citizen.CreateThread(
     end
 )
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-		Citizen.Wait(1)
-		if IsPedOnFoot(GetPlayerPed(-1)) then 
+		Wait(1)
+		if IsPedOnFoot(PlayerPedId()) then 
 			SetRadarZoom(1100)
-		elseif IsPedInAnyVehicle(GetPlayerPed(-1), true) then
+		elseif IsPedInAnyVehicle(PlayerPedId(), true) then
 			SetRadarZoom(1100)
 		end
     end

@@ -1,9 +1,9 @@
 ESX = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
+		Wait(0)
 	end
 end)
 
@@ -132,7 +132,7 @@ function AttemptPurchase(type, upgradeLevel)
     attemptingPurchase = true
 
     while attemptingPurchase do
-        Citizen.Wait(1)
+        Wait(1)
     end
 
     if not isPurchaseSuccessful then
@@ -835,7 +835,7 @@ end
 
 -- #MarkedForMarker
 --#[Citizen Threads]#--
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do 
         local plyPed = PlayerPedId()
 
@@ -872,7 +872,7 @@ Citizen.CreateThread(function()
             Wait(2000)
         end
 
-        Citizen.Wait(1)
+        Wait(1)
     end
 end)
 

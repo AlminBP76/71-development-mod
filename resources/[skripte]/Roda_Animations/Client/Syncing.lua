@@ -103,9 +103,9 @@ AddEventHandler("ClientEmoteRequestReceive", function(emotename, etype)
 end)
 
 function requestingAnim()
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while isRequestAnim do
-            Citizen.Wait(0)
+            Wait(0)
             if IsControlJustPressed(1, 246) and isRequestAnim then
             target, distance = GetClosestPlayer()
                 if(distance ~= -1 and distance < 3) then
@@ -169,7 +169,7 @@ function GetClosestPlayer()
     local players = GetPlayers()
     local closestDistance = -1
     local closestPlayer = -1
-    local ply = GetPlayerPed(-1)
+    local ply = PlayerPedId()
     local plyCoords = GetEntityCoords(ply, 0)
 
     for index,value in ipairs(players) do

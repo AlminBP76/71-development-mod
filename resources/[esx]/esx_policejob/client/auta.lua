@@ -1,9 +1,9 @@
 ESX              = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
+		Wait(0)
 	end
 end)
 
@@ -12,10 +12,10 @@ local genderNum = 0
 local distancecheck = false
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
 
 	while true do
-		Citizen.Wait(100)
+		Wait(100)
 		for k,v in pairs (Config.main) do
 			local id = GetEntityCoords(PlayerPedId())
 			local distancia = #(id - v.coords)
@@ -39,7 +39,7 @@ function spawn(modelo, coords, heading, gender, animDict, animName)
 	
 	RequestModel(GetHashKey(modelo))
 	while not HasModelLoaded(GetHashKey(modelo)) do
-		Citizen.Wait(1)
+		Wait(1)
 	end
 	
 	if gender == 'male' then
@@ -62,7 +62,7 @@ function spawn(modelo, coords, heading, gender, animDict, animName)
 	if animDict and animName then
 		RequestAnimDict(animDict)
 		while not HasAnimDictLoaded(animDict) do
-			Citizen.Wait(1)
+			Wait(1)
 		end
 		TaskPlayAnim(ped, animDict, animName, 8.0, 0, -1, 1, 0, 0, 0)
 	end

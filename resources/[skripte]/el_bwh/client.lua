@@ -1,10 +1,10 @@
 ESX = nil
 local pos_before_assist,assisting,assist_target,last_assist,IsFirstSpawn = nil, false, nil, nil, true
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
+		Wait(0)
 	end
 	SetNuiFocus(false, false)
 end)
@@ -50,9 +50,9 @@ end)
 
 RegisterNetEvent("el_bwh:gotBanned")
 AddEventHandler("el_bwh:gotBanned",function(rsn)
-	Citizen.CreateThread(function()
+	CreateThread(function()
 		local scaleform = RequestScaleformMovie("mp_big_message_freemode")
-		while not HasScaleformMovieLoaded(scaleform) do Citizen.Wait(0) end
+		while not HasScaleformMovieLoaded(scaleform) do Wait(0) end
 		BeginScaleformMovieMethod(scaleform, "SHOW_SHARD_WASTED_MP_MESSAGE")
 		PushScaleformMovieMethodParameterString("~r~BANNED")
 		PushScaleformMovieMethodParameterString(rsn)
@@ -62,10 +62,10 @@ AddEventHandler("el_bwh:gotBanned",function(rsn)
 		ClearDrawOrigin()
 		ESX.UI.HUD.SetDisplay(0)
 		while true do
-			Citizen.Wait(0)
+			Wait(0)
 			DisableAllControlActions(0)
 			DisableFrontendThisFrame()
-			local ped = GetPlayerPed(-1)
+			local ped = PlayerPedId()
 			ESX.UI.Menu.CloseAll()
 			SetEntityCoords(ped, 0, 0, 0, 0, 0, 0, false)
 			FreezeEntityPosition(ped, true)
@@ -79,9 +79,9 @@ end)
 RegisterNetEvent("el_bwh:receiveWarn")
 AddEventHandler("el_bwh:receiveWarn",function(sender,message)
 	TriggerEvent("chat:addMessage",{color={255,255,0},multiline=true,args={"BWH","You received a warning"..(sender~="" and " from "..sender or "").."!\n-> "..message}})
-	Citizen.CreateThread(function()
+	CreateThread(function()
 		local scaleform = RequestScaleformMovie("mp_big_message_freemode")
-		while not HasScaleformMovieLoaded(scaleform) do Citizen.Wait(0) end
+		while not HasScaleformMovieLoaded(scaleform) do Wait(0) end
 		BeginScaleformMovieMethod(scaleform, "SHOW_SHARD_WASTED_MP_MESSAGE")
 		PushScaleformMovieMethodParameterString("~y~WARNING")
 		PushScaleformMovieMethodParameterString(message)
@@ -91,7 +91,7 @@ AddEventHandler("el_bwh:receiveWarn",function(sender,message)
 		local drawing = true
 		Citizen.SetTimeout((Config.warning_screentime * 1000),function() drawing = false end)
 		while drawing do
-			Citizen.Wait(0)
+			Wait(0)
 			DrawScaleformMovieFullscreen(scaleform, 255, 255, 255, 255)
 		end
 		SetScaleformMovieAsNoLongerNeeded(scaleform)
@@ -110,7 +110,7 @@ AddEventHandler("el_bwh:acceptedAssist",function(t,pos)
 	local target = GetPlayerFromServerId(t)
 	if target then
 		if not pos then pos = NetworkGetPlayerCoords(target) end
-		local ped = GetPlayerPed(-1)
+		local ped = PlayerPedId()
 		pos_before_assist = GetEntityCoords(ped)
 		assisting = true
 		assist_target = t
@@ -122,7 +122,7 @@ RegisterNetEvent("el_bwh:assistDone")
 AddEventHandler("el_bwh:assistDone",function()
 	if assisting then
 		assisting = false
-		if pos_before_assist~=nil then ESX.Game.Teleport(GetPlayerPed(-1),pos_before_assist+vector3(0,0.5,0)); pos_before_assist = nil end
+		if pos_before_assist~=nil then ESX.Game.Teleport(PlayerPedId(),pos_before_assist+vector3(0,0.5,0)); pos_before_assist = nil end
 		assist_target = nil
 	end
 end)
@@ -153,9 +153,9 @@ RegisterCommand("decassist",function(a,b,c)
 end, false)
 
 if Config.assist_keys.enable then
-	Citizen.CreateThread(function()
+	CreateThread(function()
 		while true do
-			Citizen.Wait(0)
+			Wait(0)
 			if IsControlJustPressed(0, Config.assist_keys.accept) then
 				if not NetworkIsPlayerActive(GetPlayerFromServerId(last_assist)) then
 					last_assist = nil
@@ -170,7 +170,7 @@ if Config.assist_keys.enable then
 	end)
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/decassist', 'Hide assist popup',{})
     TriggerEvent('chat:addSuggestion', '/assist', 'Request help from admins',{{name="Reason", help="Why do you need help?"}})
     TriggerEvent('chat:addSuggestion', '/cassist', 'Cancel your pending help request',{})

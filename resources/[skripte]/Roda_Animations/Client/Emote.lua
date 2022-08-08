@@ -28,7 +28,7 @@ end
 -- Commands / Events --------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
-Citizen.CreateThread(function()
+CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/e', 'Play an emote', {{ name="emotename", help="dance, camera, sit or any valid emote."}})
     TriggerEvent('chat:addSuggestion', '/e', 'Play an emote', {{ name="emotename", help="dance, camera, sit or any valid emote."}})
     TriggerEvent('chat:addSuggestion', '/emote', 'Play an emote', {{ name="emotename", help="dance, camera, sit or any valid emote."}})
@@ -57,7 +57,7 @@ RegisterCommand('walk', function(source, args, raw) WalkCommandStart(source, arg
 AddEventHandler('onResourceStop', function(resource)
   if resource == GetCurrentResourceName() then
     DestroyAllProps()
-    ClearPedTasksImmediately(GetPlayerPed(-1))
+    ClearPedTasksImmediately(PlayerPedId())
     ResetPedMovementClipset(PlayerPedId())
   end
 end)
@@ -83,7 +83,7 @@ function EmoteCancel()
 
   if IsInAnimation then
     PtfxStop()
-    ClearPedTasks(GetPlayerPed(-1))
+    ClearPedTasks(PlayerPedId())
     DestroyAllProps()
     IsInAnimation = false
   end
@@ -332,8 +332,8 @@ function OnEmotePlay(EmoteName)
       inAnimShoot()
       return
     elseif ChosenDict == "Scenario" then if InVehicle then return end
-      ClearPedTasks(GetPlayerPed(-1))
-      TaskStartScenarioInPlace(GetPlayerPed(-1), ChosenAnimation, 0, true)
+      ClearPedTasks(PlayerPedId())
+      TaskStartScenarioInPlace(PlayerPedId(), ChosenAnimation, 0, true)
       DebugPrint("Playing scenario = ("..ChosenAnimation..")")
       IsInAnimation = true
       inAnimShoot()
@@ -425,7 +425,7 @@ function OnEmotePlay(EmoteName)
 end
 
 function runPtfx()
-  Citizen.CreateThread(function()
+  CreateThread(function()
     while PtfxPrompt do
       if not PtfxNotif then
         SimpleNotify(PtfxInfo)
@@ -436,18 +436,18 @@ function runPtfx()
         Wait(PtfxWait)
         PtfxStop()
       end
-      Citizen.Wait(0)
+      Wait(0)
     end
   end)
 end
 
 function inAnimShoot()
-  Citizen.CreateThread(function()
+  CreateThread(function()
     while IsInAnimation do
       if IsPedShooting(PlayerPedId()) and IsInAnimation then
         EmoteCancel()
       end
-      Citizen.Wait(100)
+      Wait(100)
     end
   end)
 end

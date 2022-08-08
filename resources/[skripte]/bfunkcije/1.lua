@@ -117,7 +117,7 @@ else
             local ukupnovrijeme = vrijeme * 1000
             local fTajmer = 0
             local lok = GetEntityCoords(PlayerPedId())
-            Citizen.CreateThread(function()
+            CreateThread(function()
                 while fTajmer < math.floor((ukupnovrijeme/100) + (100 - ukupnovrijeme/100)) and not pritisnuoblok do 
                     fTajmer = fTajmer + 1
                     SendNUIMessage({
@@ -132,7 +132,7 @@ else
             end)
 
             while fTajmer < 100 and not pritisnuoblok do 
-                Citizen.Wait(9)
+                Wait(9)
                 if blokanje then
                     if IsDisabledControlJustPressed(0, 38) then
                         pritisnuoblok = true
@@ -167,13 +167,13 @@ else
             })
 
             PlaySoundFrontend(-1, "LOOSE_MATCH", "HUD_MINI_GAME_SOUNDSET", 1)
-            Citizen.Wait(500)
+            Wait(500)
             PlaySoundFrontend(-1, "LOOSE_MATCH", "HUD_MINI_GAME_SOUNDSET", 1)
-            Citizen.Wait(500)
+            Wait(500)
             PlaySoundFrontend(-1, "LOOSE_MATCH", "HUD_MINI_GAME_SOUNDSET", 1)
-            Citizen.Wait(500)
+            Wait(500)
             PlaySoundFrontend(-1, "LOOSE_MATCH", "HUD_MINI_GAME_SOUNDSET", 1)
-            Citizen.Wait(500)
+            Wait(500)
             PlaySoundFrontend(-1, "LOOSE_MATCH", "HUD_MINI_GAME_SOUNDSET", 1)
         
         end)
@@ -198,9 +198,9 @@ else
 
         end)
         
-        Citizen.CreateThread(function()
+        CreateThread(function()
             while true do 
-                Citizen.Wait(8)
+                Wait(8)
                 if not sveOtvoreno and IsControlPressed(0, 243) then
                     SendNUIMessage({
                         pokazano = "sve",
@@ -244,9 +244,9 @@ else
 
             if time ~= -1 then
                 if time ~= nil then
-                    Citizen.CreateThread(function()
+                    CreateThread(function()
                         while true do 
-                            Citizen.Wait(time*1000)
+                            Wait(time*1000)
                             SendNUIMessage({
                                 ticknotif = true,
                                 bool = false,

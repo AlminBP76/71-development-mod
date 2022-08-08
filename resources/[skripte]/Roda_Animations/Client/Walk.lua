@@ -7,7 +7,7 @@ end
 function RequestWalking(set)
   RequestAnimSet(set)
   while not HasAnimSetLoaded(set) do
-    Citizen.Wait(1)
+    Wait(1)
   end 
 end
 

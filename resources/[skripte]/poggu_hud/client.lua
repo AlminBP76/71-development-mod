@@ -3,12 +3,12 @@ local lastJob = nil
 local isAmmoboxShown = false
 local PlayerData = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
   while ESX == nil do
     TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-    Citizen.Wait(10)
+    Wait(10)
   end
-  Citizen.Wait(3000)
+  Wait(3000)
   if PlayerData == nil or PlayerData.job == nil then
 	  	PlayerData = ESX.GetPlayerData()
 	end
@@ -55,9 +55,9 @@ AddEventHandler('poggu_hud:showAlert', function(message, time, color)
 end)
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(5000)
+		Wait(5000)
 		TriggerServerEvent('poggu_hud:retrieveData')
 
 		--[[
@@ -74,9 +74,9 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(9000)
+		Wait(9000)
 		if(PlayerData ~= nil) and (PlayerData.job ~= nil) then
 			local jobName = PlayerData.job.label..' - '..PlayerData.job.grade_label
 			if(lastJob ~= jobName) then
@@ -90,11 +90,11 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
  while true do
-		Citizen.Wait(200)
+		Wait(200)
 		if Config.enableAmmoBox then
-			local playerPed = GetPlayerPed(-1)
+			local playerPed = PlayerPedId()
 			local weapon, hash = GetCurrentPedWeapon(playerPed, 1)
 			if(weapon) then
 				isAmmoboxShown = true
@@ -124,9 +124,9 @@ function menuPaused()
 	})
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(1)
+		Wait(1)
 		if IsPauseMenuActive() then
 			if not isMenuPaused then
 				isMenuPaused = true

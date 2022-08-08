@@ -13,7 +13,7 @@ function DrawGenericText(text)
 	DrawText(0.40, 0.00)
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
 		local sleepThread = 250
 		
@@ -27,7 +27,7 @@ Citizen.CreateThread(function()
 			DrawGenericText(("~g~X~w~: %s ~g~Y~w~: %s ~g~Z~w~: %s ~g~H~w~: %s"):format(FormatCoord(playerX), FormatCoord(playerY), FormatCoord(playerZ), FormatCoord(playerH)))
 		end
 
-		Citizen.Wait(sleepThread)
+		Wait(sleepThread)
 	end
 end)
 

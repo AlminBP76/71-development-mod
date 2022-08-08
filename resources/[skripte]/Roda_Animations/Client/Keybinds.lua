@@ -5,7 +5,7 @@ local binds = {}
 -- Commands / Events --------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
-Citizen.CreateThread(function()
+CreateThread(function()
     
     binds = json.decode(GetResourceKvpString('emoteBinds'))
     

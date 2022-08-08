@@ -44,7 +44,7 @@ elseif ESX.GetConfig().Multichar == true then
 	else ESX.Players = {} end
 
 	local function SetupCharacters(source)
-		while not FETCH do Citizen.Wait(100) end
+		while not FETCH do Wait(100) end
 		local identifier = GetIdentifier(source)
 		ESX.Players[identifier] = true
 
@@ -89,7 +89,7 @@ elseif ESX.GetConfig().Multichar == true then
 	AddEventHandler('playerConnecting', function(playerName, setKickReason, deferrals)
 		deferrals.defer()
 		local identifier = GetIdentifier(source)
-		Citizen.Wait(100)
+		Wait(100)
 		if identifier then
 			if ESX.Players[identifier] then
 				deferrals.done(('A player is already connected to the server with this identifier.\nYour identifier: %s:%s'):format(PRIMARY_IDENTIFIER, identifier))
@@ -115,7 +115,7 @@ elseif ESX.GetConfig().Multichar == true then
 		MySQL.Async.transaction(queries, function(result)
 			if result then
 				print(('[^2INFO^7] Player [%s] %s has deleted a character (%s)'):format(GetPlayerName(source), source, identifier))
-				Citizen.Wait(50)
+				Wait(50)
 				SetupCharacters(source)
 			else
 				error('\n^1Transaction failed while trying to delete '..identifier..'^0')
@@ -156,7 +156,7 @@ elseif ESX.GetConfig().Multichar == true then
 				end
 				repeat
 					ESX.Jobs = GetJobs()
-					Citizen.Wait(50)
+					Wait(50)
 				until next(ESX.Jobs)
 				FETCH = MySQL.Sync.store("SELECT identifier, accounts, job, job_grade, firstname, lastname, dateofbirth, sex, skin, disabled FROM users WHERE identifier LIKE ? LIMIT ?")
 			end

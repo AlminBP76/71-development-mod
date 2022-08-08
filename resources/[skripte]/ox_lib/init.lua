@@ -119,7 +119,7 @@ function SetInterval(callback, interval, ...)
 	local id
 	local args = {...}
 
-	Citizen.CreateThreadNow(function(ref)
+	CreateThreadNow(function(ref)
 		id = ref
 		intervals[id] = interval or 0
 		repeat
@@ -178,7 +178,7 @@ local cache = setmetatable({}, {
 	end
 })
 
-Citizen.CreateThreadNow(function()
+CreateThreadNow(function()
 	while true do
 		cache()
 		Wait(60000)

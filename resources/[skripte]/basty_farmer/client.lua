@@ -10,7 +10,7 @@ local NPC = {
     {model = "a_m_m_rurmeth_01", x = -1098.08, y = 4948.0, z = 217.36, h = 252.72}, -- Sledeci npc
 }
 
-Citizen.CreateThread(function()
+CreateThread(function()
     for _, v in pairs(NPC) do
         RequestModel(GetHashKey(v.model))
         while not HasModelLoaded(GetHashKey(v.model)) do 
@@ -267,7 +267,7 @@ AddEventHandler("pocniFusPoslic", function()
                 Vehicle = true
             }
         })
-        Citizen.Wait(2500)
+        Wait(2500)
         ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
         if skin.sex == 0 then
             TriggerEvent('skinchanger:loadClothes', skin, Config.Odeca.musko)
@@ -296,7 +296,7 @@ AddEventHandler("zavrsiPoslic", function()
             Vehicle = true
         }
     })
-    Citizen.Wait(2500)
+    Wait(2500)
     ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
         TriggerEvent('skinchanger:loadSkin', skin)
     ESX.ShowNotification("", "Završio si posao", 3000, "success")
@@ -326,17 +326,17 @@ function idemoBlipovi()
     end
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do 
         local spavaj = 0
         if poceo == true then
         ESX.Game.Utils.DrawText3D({x = 2415.96, y = 4993.64, z = 45.24 + 0.3}, '~g~Ima ~w~[~r~' ..GlobalState.Uzeo.. '~w~] ~g~jabuka od 25 ostavljenih da bi kamion mogao da krene', 0.8)
     end
-        Citizen.Wait(spavaj)
+        Wait(spavaj)
     end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         local spavaj = 500
         local ped = PlayerPedId()
@@ -360,7 +360,7 @@ Citizen.CreateThread(function()
                                     Vehicle = true
                                 }
                             })
-                            Citizen.Wait(5500)
+                            Wait(5500)
                             v.Ubrano = true
                             uzeto = uzeto + 1
                             TriggerServerEvent('dodajSvima')
@@ -375,7 +375,7 @@ Citizen.CreateThread(function()
                 end
             end
         end
-        Citizen.Wait(spavaj)
+        Wait(spavaj)
     end
 end)
 
