@@ -230,8 +230,8 @@ function OpenMobileMechanicActionsMenu()
 			if DoesEntityExist(vehicle) then
 				isBusy = true
 				TaskStartScenarioInPlace(playerPed, 'WORLD_HUMAN_WELDING', 0, true)
-				Citizen.CreateThread(function()
-					Citizen.Wait(10000)
+				CreateThread(function()
+					Wait(10000)
 
 					SetVehicleDoorsLocked(vehicle, 1)
 					SetVehicleDoorsLockedForAllPlayers(vehicle, false)
@@ -256,8 +256,8 @@ function OpenMobileMechanicActionsMenu()
 			if DoesEntityExist(vehicle) then
 				isBusy = true
 				TaskStartScenarioInPlace(playerPed, 'PROP_HUMAN_BUM_BIN', 0, true)
-				Citizen.CreateThread(function()
-					Citizen.Wait(20000)
+				CreateThread(function()
+					Wait(20000)
 
 					SetVehicleFixed(vehicle)
 					SetVehicleDeformationFixed(vehicle)
@@ -284,8 +284,8 @@ function OpenMobileMechanicActionsMenu()
 			if DoesEntityExist(vehicle) then
 				isBusy = true
 				TaskStartScenarioInPlace(playerPed, 'WORLD_HUMAN_MAID_CLEAN', 0, true)
-				Citizen.CreateThread(function()
-					Citizen.Wait(10000)
+				CreateThread(function()
+					Wait(10000)
 
 					SetVehicleDirtLevel(vehicle, 0)
 					ClearPedTasksImmediately(playerPed)
@@ -448,8 +448,8 @@ AddEventHandler('esx_mechanicjob:onHijack', function()
 
 			TaskStartScenarioInPlace(playerPed, 'WORLD_HUMAN_WELDING', 0, true)
 
-			Citizen.CreateThread(function()
-				Citizen.Wait(10000)
+			CreateThread(function()
+				Wait(10000)
 				if chance <= 66 then
 					SetVehicleDoorsLocked(vehicle, 1)
 					SetVehicleDoorsLockedForAllPlayers(vehicle, false)
@@ -480,8 +480,8 @@ AddEventHandler('esx_mechanicjob:onCarokit', function()
 
 		if DoesEntityExist(vehicle) then
 			TaskStartScenarioInPlace(playerPed, 'WORLD_HUMAN_HAMMERING', 0, true)
-			Citizen.CreateThread(function()
-				Citizen.Wait(10000)
+			CreateThread(function()
+				Wait(10000)
 				SetVehicleFixed(vehicle)
 				SetVehicleDeformationFixed(vehicle)
 				ClearPedTasksImmediately(playerPed)
@@ -507,8 +507,8 @@ AddEventHandler('esx_mechanicjob:onFixkit', function()
 
 		if DoesEntityExist(vehicle) then
 			TaskStartScenarioInPlace(playerPed, 'PROP_HUMAN_BUM_BIN', 0, true)
-			Citizen.CreateThread(function()
-				Citizen.Wait(20000)
+			CreateThread(function()
+				Wait(20000)
 				SetVehicleFixed(vehicle)
 				SetVehicleDeformationFixed(vehicle)
 				SetVehicleUndriveable(vehicle, false)
@@ -590,9 +590,9 @@ AddEventHandler('esx_phone:loaded', function(phoneNumber, contacts)
 end)
 
 -- Pop NPC mission vehicle when inside area
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(10)
+		Wait(10)
 
 		if NPCTargetTowableZone and not NPCHasSpawnedTowable then
 			local coords = GetEntityCoords(PlayerPedId())
@@ -622,7 +622,7 @@ Citizen.CreateThread(function()
 end)
 
 -- Create Blips
-Citizen.CreateThread(function()
+CreateThread(function()
 	local blip = AddBlipForCoord(Config.Zones.MechanicActions.Pos.x, Config.Zones.MechanicActions.Pos.y, Config.Zones.MechanicActions.Pos.z)
 
 	SetBlipSprite (blip, 446)
@@ -637,9 +637,9 @@ Citizen.CreateThread(function()
 end)
 
 -- Display markers
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(0)
+		Wait(0)
 
 		if ESX.PlayerData.job and ESX.PlayerData.job.name == 'mechanic' then
 			local coords, letSleep = GetEntityCoords(PlayerPedId()), true
@@ -652,18 +652,18 @@ Citizen.CreateThread(function()
 			end
 
 			if letSleep then
-				Citizen.Wait(500)
+				Wait(500)
 			end
 		else
-			Citizen.Wait(500)
+			Wait(500)
 		end
 	end
 end)
 
 -- Enter / Exit marker events
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(10)
+		Wait(10)
 
 		if ESX.PlayerData.job and ESX.PlayerData.job.name == 'mechanic' then
 
@@ -694,14 +694,14 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	local trackedEntities = {
 		'prop_roadcone02a',
 		'prop_toolchest_01'
 	}
 
 	while true do
-		Citizen.Wait(500)
+		Wait(500)
 
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
@@ -738,9 +738,9 @@ Citizen.CreateThread(function()
 end)
 
 -- Key Controls
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(0)
+		Wait(0)
 
 		if CurrentAction then
 			TriggerEvent('cd_drawtextui:ShowUI', 'show', CurrentActionMsg)

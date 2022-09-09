@@ -20,12 +20,12 @@ end)
 
 playerDistances = {}
 
-Citizen.CreateThread(function()
+CreateThread(function()
     Wait(100)
     while true do
-    Citizen.Wait(0)
+    Wait(0)
       if not idovi then
-        Citizen.Wait(2000)
+        Wait(2000)
       else
         for _, player in ipairs(GetActivePlayers()) do
           local ped = GetPlayerPed(player)
@@ -45,7 +45,7 @@ Citizen.CreateThread(function()
 end)
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         for _, player in ipairs(GetActivePlayers()) do
             if GetPlayerPed(player) ~= PlayerPedId() then
@@ -55,7 +55,7 @@ Citizen.CreateThread(function()
                 playerDistances[player] = distance
             end
         end
-        Citizen.Wait(1000)
+        Wait(1000)
     end
 end)
 

@@ -5,10 +5,10 @@ local hasAlreadyEnteredMarker = false
 local allMyOutfits = {}
 
 if not ESX then
-	Citizen.CreateThread(function()
+	CreateThread(function()
 		while ESX == nil do
 			TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-			Citizen.Wait(0)
+			Wait(0)
 		end
 	end)
 end
@@ -44,7 +44,7 @@ end)
 -- end, false)
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	for k,v in ipairs(Config.ClothingShops) do
 		local data = v
 		if data.blip == true then
@@ -62,7 +62,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	for k,v in ipairs(Config.BarberShops) do
 		local blip = AddBlipForCoord(v)
 
@@ -77,7 +77,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
 		local playerCoords, isInClothingShop, isInBarberShop, currentZone, letSleep = GetEntityCoords(PlayerPedId()), false, false, nil, true
 		local sleep = 2000
@@ -123,7 +123,7 @@ Citizen.CreateThread(function()
 			TriggerEvent('cd_drawtextui:HideUI')
 		end
 
-		Citizen.Wait(sleep)
+		Wait(sleep)
 	end
 end)
 
@@ -131,15 +131,15 @@ AddEventHandler('fivem-appearance:hasExitedMarker', function(zone)
 	CurrentAction = nil
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
 
-		Citizen.Wait(0)
+		Wait(0)
 
 		if CurrentAction ~= nil then
 
 			if IsControlPressed(1,  38) then
-				Citizen.Wait(500)
+				Wait(500)
 
 				if CurrentAction == 'clothingMenu' then
 
@@ -259,7 +259,7 @@ RegisterNetEvent('fivem-appearance:pickNewOutfit', function(data)
             }
         },
     })
-	Citizen.Wait(300)
+	Wait(300)
 	for i=1, #allMyOutfits, 1 do
 		TriggerEvent('nh-context:sendMenu', {
 			{
@@ -302,7 +302,7 @@ AddEventHandler('fivem-appearance:setOutfit', function(data)
 	local currentPedModel = exports['fivem-appearance']:getPedModel(playerPed)
 	if currentPedModel ~= pedModel then
     	exports['fivem-appearance']:setPlayerModel(pedModel)
-		Citizen.Wait(500)
+		Wait(500)
 		playerPed = PlayerPedId()
 		exports['fivem-appearance']:setPedComponents(playerPed, pedComponents)
 		exports['fivem-appearance']:setPedProps(playerPed, pedProps)
@@ -334,7 +334,7 @@ RegisterNetEvent('fivem-appearance:saveOutfit', function()
                 local pedModel = exports['fivem-appearance']:getPedModel(playerPed)
                 local pedComponents = exports['fivem-appearance']:getPedComponents(playerPed)
                 local pedProps = exports['fivem-appearance']:getPedProps(playerPed)
-                Citizen.Wait(500)
+                Wait(500)
                 TriggerServerEvent('fivem-appearance:saveOutfit', name, pedModel, pedComponents, pedProps)
             end
         end
@@ -353,7 +353,7 @@ RegisterNetEvent('fivem-appearance:saveOutfit', function()
             local pedModel = exports['fivem-appearance']:getPedModel(playerPed)
             local pedComponents = exports['fivem-appearance']:getPedComponents(playerPed)
             local pedProps = exports['fivem-appearance']:getPedProps(playerPed)
-            Citizen.Wait(500)
+            Wait(500)
             TriggerServerEvent('fivem-appearance:saveOutfit', keyboard[1].input, pedModel, pedComponents, pedProps)
             
         end
@@ -364,7 +364,7 @@ RegisterNetEvent('fivem-appearance:deleteOutfitMenu', function(data)
     local id = data.id
     local number = data.number
 	TriggerEvent('fivem-appearance:getOutfits')
-	Citizen.Wait(150)
+	Wait(150)
     TriggerEvent('nh-context:sendMenu', {
         {
             id = 1,

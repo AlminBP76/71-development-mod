@@ -15,7 +15,7 @@ RegisterNUICallback("closeMenu", function(data, cb)
 end)
 
 function DialogInput(data)
-    Citizen.Wait(150)
+    Wait(150)
     if not data then return end
     if properties then return end
     

@@ -42,7 +42,7 @@ CreateThread(function()
 		  stvoriLeteciTekst(GetEntityCoords(PlayerPedId()), "Pritisni ~g~ E ~w~ da operes Vozilo", 2)
 
           if IsControlJustReleased(0, 38) then
-            local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1),false)
+            local vehicle = GetVehiclePedIsIn(PlayerPedId(),false)
 
             if GetVehicleDirtLevel(vehicle) > 1 then
               WashVehicle()
@@ -80,7 +80,7 @@ end
 function WashVehicle()
   ESX.TriggerServerCallback('almin_pranjeauta:StanjePara', function(novac)
     if novac then
-      local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1),false)
+      local vehicle = GetVehiclePedIsIn(PlayerPedId(),false)
       DoScreenFadeOut(1000)
       Wait(5000)
       SetVehicleDirtLevel(vehicle, 0.0)

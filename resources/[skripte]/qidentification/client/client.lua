@@ -47,9 +47,9 @@ AddEventHandler('qidentification:showID', function(item)
 		LocalPlayer.state:set('idshown',true,false)
 		-- open it for yourself too
 		TriggerEvent('qidentification:openID',item.name)
-		Citizen.CreateThread(function()
+		CreateThread(function()
 			-- Fire and forget cooldown
-			Citizen.Wait(Config.ShowIDCooldown * 1000)
+			Wait(Config.ShowIDCooldown * 1000)
 			LocalPlayer.state:set('idshown',false,false) -- Doesn't need to be replicated to the server
 		end)
 	end 
@@ -101,7 +101,7 @@ end)
 
 
 if Config.EnableLicenseBlip then
-    Citizen.CreateThread(function()
+    CreateThread(function()
 		for k,v in pairs(Config.LicenseLocation) do
 			for i = 1, #v.LicenseLocation, 1 do
 				local blip = AddBlipForCoord(v.LicenseLocation[i])

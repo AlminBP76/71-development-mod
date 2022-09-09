@@ -5,7 +5,7 @@ local open_assists,active_assists = {},{}
 
 function split(s, delimiter)result = {};for match in (s..delimiter):gmatch("(.-)"..delimiter) do table.insert(result, match) end return result end
 
-Citizen.CreateThread(function() -- startup
+CreateThread(function() -- startup
     TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
     while ESX==nil do Wait(0) end
     

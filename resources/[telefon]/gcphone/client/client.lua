@@ -32,16 +32,16 @@ local test = ""
 
 ESX = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
+		Wait(0)
   end
 end)
 
 RegisterNUICallback('getAccessToken', function(data, cb)
   while ESX == nil do
-    Citizen.Wait(0)
+    Wait(0)
   end
   ESX.TriggerServerCallback('crewPhone:getAccessToken', function(token)
 	test = token
@@ -56,9 +56,9 @@ AddEventHandler('crewPhone:refreshToken', function(token)
   SendNUIMessage({event = "updateAccesToken", token = token})
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
   while true do
-    Citizen.Wait(0)
+    Wait(0)
     if takePhoto ~= true then
       if IsControlJustPressed(1, KeyOpenClose) then
         TooglePhone()
@@ -88,9 +88,9 @@ Citizen.CreateThread(function()
 end)
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
   while true do
-    Citizen.Wait(10)
+    Wait(10)
     if menuIsOpen then
       playerPed = PlayerPedId()
       DisablePlayerFiring(playerPed, true)
@@ -257,9 +257,9 @@ AddEventHandler("gcPhone:receiveMessage", function(message)
 
         ESX.ShowNotification(text)
         PlaySound(-1, "Menu_Accept", "Phone_SoundSet_Default", 0, 0, 1)
-        Citizen.Wait(300)
+        Wait(300)
         PlaySound(-1, "Menu_Accept", "Phone_SoundSet_Default", 0, 0, 1)
-        Citizen.Wait(300)
+        Wait(300)
         PlaySound(-1, "Menu_Accept", "Phone_SoundSet_Default", 0, 0, 1)
       end
     end)
@@ -628,13 +628,13 @@ RegisterNUICallback('takePhoto', function(data, cb)
 	CreateMobilePhone(1)
   CellCamActivate(true, true)
   takePhoto = true
-  Citizen.Wait(0)
+  Wait(0)
   if hasFocus == true then
     SetNuiFocus(false, false)
     hasFocus = false
   end
 	while takePhoto do
-    Citizen.Wait(0)
+    Wait(0)
 
 		if IsControlJustPressed(1, 27) then -- Toogle Mode
 			frontCam = not frontCam
@@ -661,6 +661,6 @@ RegisterNUICallback('takePhoto', function(data, cb)
 		HideHudComponentThisFrame(19)
     HideHudAndRadarThisFrame()
   end
-  Citizen.Wait(1000)
+  Wait(1000)
   PhonePlayAnim('text', false, true)
 end)

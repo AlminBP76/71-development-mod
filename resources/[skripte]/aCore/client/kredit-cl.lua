@@ -1,6 +1,6 @@
 ESX = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while ESX == nil do 
         TriggerEvent('esx:getSharedObject', function(obj)
             ESX = obj
@@ -10,9 +10,9 @@ end)
 
 -- Display Markera
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Wait(0)
         local sleep = true
         local igr = PlayerPedId()
         local kordeigr = GetEntityCoords(igr, true)
@@ -28,7 +28,7 @@ Citizen.CreateThread(function()
             end
         end
         if sleep then
-          Citizen.Wait(500)
+          Wait(500)
         end
     end
 end)

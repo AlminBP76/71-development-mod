@@ -3,7 +3,7 @@ ESX = nil
 local PlayerLoaded = false
 wanted = false
 
-Citizen.CreateThread(
+CreateThread(
     function()
         while ESX == nil do
             TriggerEvent(
@@ -12,7 +12,7 @@ Citizen.CreateThread(
                     ESX = obj
                 end
             )
-            Citizen.Wait(0)
+            Wait(0)
         end
 
         PlayerLoaded = true
@@ -38,7 +38,7 @@ AddEventHandler(
             function(wanted)
                 if wanted then
                     while not PlayerLoaded do
-                        Citizen.Wait(1000)
+                        Wait(1000)
                     end
                     wanted = true
                     ESX.ShowNotification("Još uvijek ste na listi traženih, pazite se!")

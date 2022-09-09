@@ -16,7 +16,7 @@ function GetMugShotBase64(Ped,Tasparent)
 	
 	local timer = 2000
 	while ((not Handle or not IsPedheadshotReady(Handle) or not IsPedheadshotValid(Handle)) and timer > 0) do
-		Citizen.Wait(10)
+		Wait(10)
 		timer = timer - 10
 	end
 
@@ -33,7 +33,7 @@ function GetMugShotBase64(Ped,Tasparent)
 	})
 	
 	while not Answers[id] do
-		Citizen.Wait(10)
+		Wait(10)
 	end
 	
 	if MugshotsCache[id] then
@@ -62,9 +62,9 @@ AddEventHandler('onResourceStop', function(resourceName)
 end)
 
 RegisterCommand("base64mugshotNormal",function(source,args,rawCommand)
-	print(GetMugShotBase64(GetPlayerPed(-1),false))
+	print(GetMugShotBase64(PlayerPedId(),false))
 end,false)
 
 RegisterCommand("base64mugshotTrasParent",function(source,args,rawCommand)
-	print(GetMugShotBase64(GetPlayerPed(-1),true))
+	print(GetMugShotBase64(PlayerPedId(),true))
 end,false)

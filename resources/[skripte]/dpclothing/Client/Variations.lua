@@ -26,7 +26,7 @@ end
 		Its important for haircuts.
 ]]--
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	-- Male Visor/Hat Variations
 	AddNewVariation("Visor", "Male", 9, 10)
 	AddNewVariation("Visor", "Male", 18, 67)

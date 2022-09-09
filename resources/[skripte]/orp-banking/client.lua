@@ -26,18 +26,18 @@ local bankLocations = {
 --     {o = 506770882, c = 'green'}
 -- }
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil or ORP == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(2000)
+		Wait(2000)
 	end
-	Citizen.Wait(2000)
+	Wait(2000)
 end)
 
 --[[RegisterCommand('atm', function(source, args)
     if playerNearATM() then
         openPlayersBank('atm')
-        local ped = GetPlayerPed(-1)
+        local ped = PlayerPedId()
     else
         exports['mythic_notify']:DoHudText('error', 'You are not near an ATM')
     end
@@ -59,18 +59,18 @@ end)
 function openPlayersBank(type, color)
     local dict = 'anim@amb@prop_human_atm@interior@male@enter'
     local anim = 'enter'
-    local ped = GetPlayerPed(-1)
+    local ped = PlayerPedId()
     local time = 2500
 
     RequestAnimDict(dict)
 
     while not HasAnimDictLoaded(dict) do
-        Citizen.Wait(7)
+        Wait(7)
     end
 
     TaskPlayAnim(ped, dict, anim, 8.0, 8.0, -1, 0, 0, 0, 0, 0)
 exports.rprogress:Start("Umetanje kartice...", time)
-    Citizen.Wait(time)
+    Wait(time)
     ClearPedTasks(ped)
     if type == 'bank' then
         inMenu = true
@@ -89,7 +89,7 @@ exports.rprogress:Start("Umetanje kartice...", time)
 end
 
 function playerNearATM() -- Check if a player is near ATM when they use command /atm
-    local ped = GetPlayerPed(-1)
+    local ped = PlayerPedId()
     local pos = GetEntityCoords(ped)
 
     for i = 1, #ATMs do
@@ -104,7 +104,7 @@ function playerNearATM() -- Check if a player is near ATM when they use command 
 end
 
 function playerNearBank() -- Checks if a player is near a bank
-    local pos = GetEntityCoords(GetPlayerPed(-1))
+    local pos = GetEntityCoords(PlayerPedId())
 
     for _, search in pairs(bankLocations) do
         local dist = GetDistanceBetweenCoords(search.x, search.y, search.z, pos.x, pos.y, pos.z, true)
@@ -118,9 +118,9 @@ end
 
 local blipsLoaded = false
 
-Citizen.CreateThread(function() -- Add bank blips
+CreateThread(function() -- Add bank blips
     while true do
-        Citizen.Wait(2000)
+        Wait(2000)
         if not blipsLoaded then
             for k, v in ipairs(bankLocations) do
                 local blip = AddBlipForCoord(v.x, v.y, v.z)
@@ -175,20 +175,20 @@ end)
 function closePlayersBank()
     local dict = 'anim@amb@prop_human_atm@interior@male@exit'
     local anim = 'exit'
-    local ped = GetPlayerPed(-1)
+    local ped = PlayerPedId()
     local time = 1800
 
     RequestAnimDict(dict)
 
     while not HasAnimDictLoaded(dict) do
-        Citizen.Wait(7)
+        Wait(7)
     end
 
     SetNuiFocus(false, false)
     SendNUIMessage({type = 'closeAll'})
     TaskPlayAnim(ped, dict, anim, 8.0, 8.0, -1, 0, 0, 0, 0, 0)
     exports.rprogress:Start("Izvlacenje kartice...", time)
-    Citizen.Wait(time)
+    Wait(time)
     ClearPedTasks(ped)
     inMenu = false
 end

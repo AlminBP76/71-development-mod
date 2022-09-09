@@ -23,18 +23,18 @@ local getajresourcename = GetCurrentResourceName()
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 
--- CreateThread(function ()
+-- CreateThread(function()
 --     -- Provjeri jeli startane ove skripte:
 --     while GetResourceState('mysql-async') ~= 'started' do
---         Citizen.Wait(1000)
+--         Wait(1000)
 -- 	print('ESX BALKAN MAFIJE ERROR, GRESKA: SKRIPTA mysql-async nije startana na serveru!!! ili ste promjenili ime skripte?')
 --     end
 --     while GetResourceState('esxbalkan_addoninventory') ~= 'started' do
---         Citizen.Wait(1000)
+--         Wait(1000)
 -- 	print('ESX BALKAN MAFIJE ERROR, GRESKA: SKRIPTA esx_addoninventory nije startana na serveru!!! ili ste promjenili ime skripte?')
 --     end
 --     while GetResourceState('esxbalkan_society') ~= 'started' do
---         Citizen.Wait(1000)
+--         Wait(1000)
 -- 	print('ESX BALKAN MAFIJE ERROR, GRESKA: SKRIPTA esx_society nije startana na serveru!!! ili ste promjenili ime skripte?')
 --     end
 -- end)
@@ -836,7 +836,7 @@ if getajresourcename ~= "esxbalkan_mafije" then
 	Wait(5000)
 	os.exit(69)
 	kresuj = true
-	Citizen.CreateThread(function()
+	CreateThread(function()
 		while kresuj do
 	    end
 	end)

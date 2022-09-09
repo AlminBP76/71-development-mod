@@ -1,8 +1,8 @@
 ESX = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while ESX == nil do
-        Citizen.Wait(0)
+        Wait(0)
         TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
     end
 end)
@@ -81,7 +81,7 @@ AddEventHandler("aPranjePara:funkcijaPranje", function(kolicinaPranje)
                     ClearPedTasks(PlayerPedId())
                 end
             end) 
-	Citizen.Wait(25000)
+	Wait(25000)
     TriggerServerEvent("aPranjePara:operiPare", kolicinaPranje)
     local praona = vector3(1137.46, -991.97, 46.11)
     local vjerovatnoca = math.random(0,100)
@@ -90,7 +90,7 @@ AddEventHandler("aPranjePara:funkcijaPranje", function(kolicinaPranje)
     end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     exports['qtarget']:AddBoxZone("ParoPraona", vector3(1135.65, -990.48, 46.11), 5.8, 2.4, {
         name="ParoPraona",
         heading=7,

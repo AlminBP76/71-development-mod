@@ -120,7 +120,7 @@ local function GenerateTheButtons() -- We generate the buttons here to save on a
 end
 
 local function PushedButton(button, extra, rotate, info) -- https://www.youtube.com/watch?v=v57i1Ze0jB8
-	Citizen.CreateThread(function()	
+	CreateThread(function()	
 		SoundPlay("Select")
 		local Button = nil
 		if extra then Button = ExtraButtons[button] elseif info then Button = InfoButton else Button = Buttons[button] end
@@ -271,7 +271,7 @@ local function DrawGUI()
 end
 
 local TextureDicts = {"dp_clothing", "dp_wheel"}
-Citizen.CreateThread(function()
+CreateThread(function()
 	for k,v in pairs(TextureDicts) do while not HasStreamedTextureDictLoaded(v) do Wait(100) RequestStreamedTextureDict(v, true) end end
 	GenerateTheButtons()
 	while true do Wait(0)

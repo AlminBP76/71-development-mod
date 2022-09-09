@@ -189,11 +189,11 @@ else
 
 
 	if Config.CheckVersion then
-		Citizen.CreateThread(function()
+		CreateThread(function()
 			local resource = GetCurrentResourceName()
 			local version, latest = GetResourceMetadata(resource, 'version')
 			local outdated = '^3[version]^7 You can upgrade to ^2v%s^7 (currently using ^1v%s^7 - refresh after updating)'
-			Citizen.Wait(2000)
+			Wait(2000)
 
 			PerformHttpRequest(GetResourceMetadata(resource, 'versioncheck'), function (errorCode, resultData, resultHeaders)
 				if errorCode ~= 200 then print("Returned error code:" .. tostring(errorCode)) else

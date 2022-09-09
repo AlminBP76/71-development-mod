@@ -22,7 +22,7 @@ function GetKey(str)
 end
 
 function IncurCooldown(ms)
-	Citizen.CreateThread(function()
+	CreateThread(function()
 		Cooldown = true Wait(ms) Cooldown = false
 	end)
 end
@@ -32,7 +32,7 @@ end
 --function IncurCooldown(ms)
 --	Cooldown = ms
 --end
---Citizen.CreateThread(function()
+--CreateThread(function()
 --	while true do Wait(500)
 --		if Cooldown then
 --			Wait(Cooldown)

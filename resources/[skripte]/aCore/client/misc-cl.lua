@@ -63,7 +63,7 @@ RegisterCommand("pokazujprstom", function()
 	else
 		startPointing()
 
-		Citizen.CreateThread(function()
+		CreateThread(function()
 			while mp_pointing do
 				Wait(20)
 				local ped = PlayerPedId()

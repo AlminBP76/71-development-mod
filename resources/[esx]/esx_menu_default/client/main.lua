@@ -1,9 +1,9 @@
 ESX = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
+		Wait(0)
 	end
 
 	local Keys = {
@@ -84,10 +84,10 @@ Citizen.CreateThread(function()
 		cb('OK')
 	end)
 
-	Citizen.CreateThread(function()
+	CreateThread(function()
 		while true do
 
-			Citizen.Wait(10)
+			Wait(10)
 
 			if IsControlPressed(0, Keys['ENTER']) and GetLastInputMethod(2) and (GetGameTimer() - GUI.Time) > 150 then
 				SendNUIMessage({

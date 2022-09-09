@@ -3,20 +3,20 @@ local musicOn = false
 
 ESX = nil
 
-Citizen.CreateThread(function ()
+CreateThread(function()
     while ESX == nil do
         TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-        Citizen.Wait(0)
+        Wait(0)
     end
 end)
 
-Citizen.CreateThread(function()
-    Citizen.Wait(1000)
+CreateThread(function()
+    Wait(1000)
     local refresh = config.RefreshTime
     local ped = PlayerPedId()
     local pos = GetEntityCoords(ped)
     while true do
-        Citizen.Wait(refresh)
+        Wait(refresh)
         ped = PlayerPedId()
         pos = GetEntityCoords(ped)
         SendNUIMessage({
@@ -124,9 +124,9 @@ end)
 
 -- Müzik Konum güncelleme
 local time = 100
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(time)
+        Wait(time)
         
         for x,y in pairs(calanMuzikler) do
             local player = GetPlayerFromServerId(calanMuzikler[x]["serverId"])

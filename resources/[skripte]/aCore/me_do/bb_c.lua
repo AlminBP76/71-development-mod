@@ -1,7 +1,7 @@
 local pedDisplaying = {}
 local displayTime = 8000
 
-Citizen.CreateThread(function()
+CreateThread(function()
     local strin = ""
 
 	while true do

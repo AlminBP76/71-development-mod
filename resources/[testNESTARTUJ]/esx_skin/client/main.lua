@@ -2,10 +2,10 @@ ESX = nil
 local lastSkin, playerLoaded, cam, isCameraActive
 local firstSpawn, zoomOffset, camOffset, heading = true, 0.0, 0.0, 90.0
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
+		Wait(0)
 	end
 end)
 
@@ -154,9 +154,9 @@ function DeleteSkinCam()
 	cam = nil
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(0)
+		Wait(0)
 
 		if isCameraActive then
 			DisableControlAction(2, 30, true)
@@ -205,16 +205,16 @@ Citizen.CreateThread(function()
 
 			ESX.ShowHelpNotification(_U('use_rotate_view'))
 		else
-			Citizen.Wait(500)
+			Wait(500)
 		end
 	end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	local angle = 90
 
 	while true do
-		Citizen.Wait(0)
+		Wait(0)
 
 		if isCameraActive then
 			if IsControlPressed(0, 108) then
@@ -231,7 +231,7 @@ Citizen.CreateThread(function()
 
 			heading = angle + 0.0
 		else
-			Citizen.Wait(500)
+			Wait(500)
 		end
 	end
 end)
@@ -257,9 +257,9 @@ function OpenSaveableMenu(submitCb, cancelCb, restrict)
 end
 
 AddEventHandler('playerSpawned', function()
-	Citizen.CreateThread(function()
+	CreateThread(function()
 		while not playerLoaded do
-			Citizen.Wait(100)
+			Wait(100)
 		end
 
 		if firstSpawn then

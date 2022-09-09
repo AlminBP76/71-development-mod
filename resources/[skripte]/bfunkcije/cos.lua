@@ -1,5 +1,5 @@
 
-Citizen.CreateThread(function()
+CreateThread(function()
 
     while not bFunkcije do 
         Wait(100)
@@ -41,16 +41,16 @@ Citizen.CreateThread(function()
         if akc then blokirajtipke = true else blokirajtipke = false end
     end
     
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while true do
-            Citizen.Wait(0)
+            Wait(0)
             if blokirajtipke then
                 for i = 1, #tipke do 
                     DisableControlAction(0, tipke[i], true)
                     DisableControlAction(1, tipke[i], true)
                 end
             else
-                Citizen.Wait(800)
+                Wait(800)
             end
         end
     end)

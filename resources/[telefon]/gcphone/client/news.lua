@@ -8,7 +8,7 @@ AddEventHandler('esx:setJob', function(job)
 end)
 
 --[[
-Citizen.CreateThread(function()
+CreateThread(function()
 
     local blip = AddBlipForCoord(newsMenu)
     SetBlipSprite (blip, 135)
@@ -24,11 +24,11 @@ Citizen.CreateThread(function()
 end)
 --]]
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(wait)
+        Wait(wait)
         if PlayerData.job and PlayerData.job.name == Config.newsJobName then 
-            local playerPed = GetPlayerPed(-1)
+            local playerPed = PlayerPedId()
             local playerPedCords = GetEntityCoords(playerPed)
             local distance = #(playerPedCords - newsMenu)
             if distance < 5.0 then

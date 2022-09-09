@@ -1,7 +1,7 @@
 ESX = nil 
-Citizen.CreateThread(function()
+CreateThread(function()
     while ESX == nil do
-        Citizen.Wait(0)
+        Wait(0)
 
         TriggerEvent("esx:getSharedObject", function(obj)
             ESX = obj
@@ -29,7 +29,7 @@ BrisiPeda = function()
     end
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     local defaultHash = 416176080
     for i=1, #Config.Lokacijepedova do
         local ped = Config.Lokacijepedova[i]["ped"]

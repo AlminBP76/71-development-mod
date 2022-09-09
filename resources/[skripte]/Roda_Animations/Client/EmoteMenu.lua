@@ -1,9 +1,9 @@
 ESX = nil
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(10)
+		Wait(10)
   end
 end)
 
@@ -22,7 +22,7 @@ end
 function RequestWalking(set)
   RequestAnimSet(set)
   while not HasAnimSetLoaded(set) do
-    Citizen.Wait(1)
+    Wait(1)
   end 
 end
 
@@ -330,9 +330,9 @@ local visible = false
 
 --   mainMenu:Visible(visible)
 --     if visible then
---       Citizen.CreateThread(function()
+--       CreateThread(function()
 --         while visible do
---           Citizen.Wait(0)
+--           Wait(0)
 --           _menuPool:ProcessMenus()
 --         end
 --       end)

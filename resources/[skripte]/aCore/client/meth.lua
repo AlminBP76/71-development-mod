@@ -25,10 +25,10 @@ function DisplayHelpText(str)
 	AddTextComponentString(str)
 	DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 end
-Citizen.CreateThread(function()
+CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(100)
+		Wait(100)
 	end
 end)
 
@@ -54,7 +54,7 @@ AddEventHandler('trp_meth:startprod', function()
 	FreezeEntityPosition(CurrentVehicle,true)
 	displayed = false
 	ESX.ShowNotification("Proizvodnja Meta je pocela")	
-	SetPedIntoVehicle(GetPlayerPed(-1), CurrentVehicle, 3)
+	SetPedIntoVehicle(PlayerPedId(), CurrentVehicle, 3)
 	SetVehicleDoorOpen(CurrentVehicle, 2)
 end)
 
@@ -64,12 +64,12 @@ AddEventHandler('trp_meth:blowup', function(posx, posy, posz)
 	if not HasNamedPtfxAssetLoaded("core") then
 		RequestNamedPtfxAsset("core")
 		while not HasNamedPtfxAssetLoaded("core") do
-			Citizen.Wait(1)
+			Wait(1)
 		end
 	end
 	SetPtfxAssetNextCall("core")
 	local fire = StartParticleFxLoopedAtCoord("ent_ray_heli_aprtmnt_l_fire", posx, posy, posz-0.8 , 0.0, 0.0, 0.0, 0.8, false, false, false, false)
-	Citizen.Wait(6000)
+	Wait(6000)
 	StopParticleFxLooped(fire, 0)
 	
 end)
@@ -83,14 +83,14 @@ AddEventHandler('trp_meth:smoke', function(posx, posy, posz, bool)
 		if not HasNamedPtfxAssetLoaded("core") then
 			RequestNamedPtfxAsset("core")
 			while not HasNamedPtfxAssetLoaded("core") do
-				Citizen.Wait(1)
+				Wait(1)
 			end
 		end
 		SetPtfxAssetNextCall("core")
 		local smoke = StartParticleFxLoopedAtCoord("exp_grd_flare", posx, posy, posz + 1.7, 0.0, 0.0, 0.0, 2.0, false, false, false, false)
 		SetParticleFxLoopedAlpha(smoke, 0.8)
 		SetParticleFxLoopedColour(smoke, 0.0, 0.0, 0.0, 0)
-		Citizen.Wait(22000)
+		Wait(22000)
 		StopParticleFxLooped(smoke, 0)
 	else
 		StopParticleFxLooped(smoke, 0)
@@ -100,19 +100,19 @@ end)
 RegisterNetEvent('trp_meth:drugged')
 AddEventHandler('trp_meth:drugged', function()
 	SetTimecycleModifier("drug_drive_blend01")
-	SetPedMotionBlur(GetPlayerPed(-1), true)
-	SetPedMovementClipset(GetPlayerPed(-1), "MOVE_M@DRUNK@SLIGHTLYDRUNK", true)
-	SetPedIsDrunk(GetPlayerPed(-1), true)
+	SetPedMotionBlur(PlayerPedId(), true)
+	SetPedMovementClipset(PlayerPedId(), "MOVE_M@DRUNK@SLIGHTLYDRUNK", true)
+	SetPedIsDrunk(PlayerPedId(), true)
 
-	Citizen.Wait(300000)
+	Wait(300000)
 	ClearTimecycleModifier()
 end)
 
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(50)
+		Wait(50)
 		
 		playerPed = PlayerPedId()
 		local pos = GetEntityCoords(PlayerPedId())
@@ -178,11 +178,11 @@ Citizen.CreateThread(function()
 		if started == true then
 			
 			if progress < 96 then
-				Citizen.Wait(6000)
+				Wait(6000)
 				if not pause and IsPedInAnyVehicle(playerPed) then
 					progress = progress +  1
 					ESX.ShowNotification('Proizvodnja Meta: ' .. progress .. '%')
-					Citizen.Wait(6000) 
+					Wait(6000) 
 				end
 
 				--
@@ -211,7 +211,7 @@ Citizen.CreateThread(function()
 						quality = 0
 						started = false
 						displayed = false
-						ApplyDamageToPed(GetPlayerPed(-1), 10, false)
+						ApplyDamageToPed(PlayerPedId(), 10, false)
 					end
 					if selection == 3 then
 						
@@ -429,7 +429,7 @@ Citizen.CreateThread(function()
 						quality = 0
 						started = false
 						displayed = false
-						ApplyDamageToPed(GetPlayerPed(-1), 10, false)
+						ApplyDamageToPed(PlayerPedId(), 10, false)
 					end
 					if selection == 3 then
 						
@@ -594,10 +594,10 @@ Citizen.CreateThread(function()
 		
 	end
 end)
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(1000)
-			if IsPedInAnyVehicle(GetPlayerPed(-1)) then
+		Wait(1000)
+			if IsPedInAnyVehicle(PlayerPedId()) then
 			else
 				if started then
 					started = false
@@ -610,9 +610,9 @@ Citizen.CreateThread(function()
 
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(10)		
+		Wait(10)		
 		if pause == true then
 			if IsControlJustReleased(0, Keys['1']) then
 				selection = 1

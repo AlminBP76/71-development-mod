@@ -293,7 +293,7 @@ end
 local TestThreadActive = nil
 function DevTestVariants(d) -- If debug mode is enabled we can try all the variants to check for scuff.
 	if not TestThreadActive then
-		Citizen.CreateThread(function()
+		CreateThread(function()
 			TestThreadActive = true
 			local Ped = PlayerPedId()
 			local Drawable = Drawables[d]

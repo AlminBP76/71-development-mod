@@ -160,7 +160,7 @@ end)
 
 RegisterNetEvent('aGaraze:SpawnVehicle', function(model, plate, coords, heading)
     if type(model) == 'string' then model = GetHashKey(model) end
-    Citizen.CreateThread(function()
+    CreateThread(function()
         entity = Citizen.InvokeNative(`CREATE_AUTOMOBILE`, model, coords.x, coords.y, coords.z, heading)
         while not DoesEntityExist(entity) do Wait(20) end
         netId = NetworkGetNetworkIdFromEntity(entity)

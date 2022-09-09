@@ -27,7 +27,7 @@ function handleStateBagInitilization(source)
 end
 
 -- temp fix before an actual fix is added
-Citizen.CreateThreadNow(function()
+CreateThreadNow(function()
 
 	local plyTbl = GetPlayers()
 	for i = 1, #plyTbl do
